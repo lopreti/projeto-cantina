@@ -4,11 +4,13 @@ internal class Produtos
 {
     private string descricao;
     private double valor;
+    private int quantidade;
 
     public Produtos()
     {
         descricao = "";
         valor = 0;
+        quantidade = 0;
 
     }
 
@@ -29,10 +31,15 @@ internal class Produtos
         set { valor = value; }
     }
 
+    public int Quantidade
+    {
+        get { return quantidade; }
+        set { quantidade = value; }
+    }
+
     public override string ToString()
     {
-        return $"{descricao} - R$ {valor}";
+        return $"{descricao} - R$ {valor:F2}";
     }
-      
 
 }
