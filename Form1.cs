@@ -1,5 +1,7 @@
 using System;
 using System.Drawing;
+using System.Windows.Forms;
+using Cantinaa;
 
 namespace Cantinaa
 {
@@ -16,6 +18,7 @@ namespace Cantinaa
         {
             InitializeComponent();
         }
+
         private void LimparTela()
         {
             listBoxCarrinho.Items.Clear();
@@ -27,6 +30,7 @@ namespace Cantinaa
             textBoxValor.Clear();
             textBoxTroco.Clear();
             textBoxNome.Clear();
+
         }
         private bool ValidarPagamento()
         {
@@ -198,6 +202,7 @@ Data/Hora: {dataHora}
             }
 
             LimparTela();
+           
         }
         
         private void listBoxCarrinho_SelectedIndexChanged(object sender, EventArgs e)
@@ -261,3 +266,4 @@ Data/Hora: {dataHora}
 
     }
 }
+
