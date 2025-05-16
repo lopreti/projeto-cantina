@@ -43,10 +43,14 @@
             numericUpDown1 = new NumericUpDown();
             label7 = new Label();
             label9 = new Label();
-            textBox1 = new TextBox();
+            textBoxNome = new TextBox();
             comboBox1 = new ComboBox();
             label10 = new Label();
             label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            textBoxValor = new TextBox();
+            textBoxTroco = new TextBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +58,7 @@
             // 
             listBoxProduto.FormattingEnabled = true;
             listBoxProduto.ItemHeight = 15;
-            listBoxProduto.Location = new Point(15, 67);
+            listBoxProduto.Location = new Point(25, 56);
             listBoxProduto.Name = "listBoxProduto";
             listBoxProduto.Size = new Size(232, 154);
             listBoxProduto.TabIndex = 0;
@@ -63,7 +67,7 @@
             // 
             listBoxCarrinho.FormattingEnabled = true;
             listBoxCarrinho.ItemHeight = 15;
-            listBoxCarrinho.Location = new Point(451, 67);
+            listBoxCarrinho.Location = new Point(461, 56);
             listBoxCarrinho.Name = "listBoxCarrinho";
             listBoxCarrinho.Size = new Size(232, 154);
             listBoxCarrinho.TabIndex = 1;
@@ -71,7 +75,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(311, 76);
+            button1.Location = new Point(321, 65);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -81,7 +85,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(311, 166);
+            button2.Location = new Point(321, 155);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -93,7 +97,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(15, 49);
+            label1.Location = new Point(25, 38);
             label1.Name = "label1";
             label1.Size = new Size(56, 15);
             label1.TabIndex = 4;
@@ -103,7 +107,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(453, 49);
+            label2.Location = new Point(463, 38);
             label2.Name = "label2";
             label2.Size = new Size(56, 15);
             label2.TabIndex = 5;
@@ -113,7 +117,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(192, 0, 0);
-            label3.Location = new Point(264, 102);
+            label3.Location = new Point(274, 91);
             label3.Name = "label3";
             label3.Size = new Size(0, 15);
             label3.TabIndex = 6;
@@ -123,7 +127,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.FromArgb(192, 0, 0);
-            label4.Location = new Point(263, 196);
+            label4.Location = new Point(273, 185);
             label4.Name = "label4";
             label4.Size = new Size(0, 15);
             label4.TabIndex = 7;
@@ -133,9 +137,9 @@
             // 
             button3.Anchor = AnchorStyles.None;
             button3.BackColor = Color.WhiteSmoke;
-            button3.Location = new Point(198, 391);
+            button3.Location = new Point(199, 402);
             button3.Name = "button3";
-            button3.Size = new Size(301, 30);
+            button3.Size = new Size(319, 34);
             button3.TabIndex = 8;
             button3.Text = "Fechar pedido";
             button3.UseVisualStyleBackColor = false;
@@ -145,7 +149,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(311, 232);
+            label5.Location = new Point(321, 221);
             label5.Name = "label5";
             label5.Size = new Size(0, 19);
             label5.TabIndex = 9;
@@ -153,7 +157,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(311, 250);
+            label6.Location = new Point(321, 239);
             label6.Name = "label6";
             label6.Size = new Size(0, 15);
             label6.TabIndex = 10;
@@ -162,7 +166,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold | FontStyle.Italic);
-            label8.Location = new Point(311, 9);
+            label8.Location = new Point(12, 9);
             label8.Name = "label8";
             label8.Size = new Size(85, 25);
             label8.TabIndex = 12;
@@ -170,7 +174,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(15, 297);
+            numericUpDown1.Location = new Point(25, 286);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 13;
@@ -189,23 +193,24 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label9.Location = new Point(14, 280);
+            label9.Location = new Point(24, 269);
             label9.Name = "label9";
             label9.Size = new Size(71, 15);
             label9.TabIndex = 15;
             label9.Text = "Quantidade";
             // 
-            // textBox1
+            // textBoxNome
             // 
-            textBox1.Location = new Point(286, 297);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 16;
+            textBoxNome.Location = new Point(296, 286);
+            textBoxNome.Name = "textBoxNome";
+            textBoxNome.Size = new Size(100, 23);
+            textBoxNome.TabIndex = 16;
+            textBoxNome.TextChanged += textBox1_TextChanged;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(535, 296);
+            comboBox1.Location = new Point(545, 285);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 17;
@@ -215,7 +220,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label10.Location = new Point(286, 279);
+            label10.Location = new Point(296, 268);
             label10.Name = "label10";
             label10.Size = new Size(40, 15);
             label10.TabIndex = 18;
@@ -225,11 +230,52 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label11.Location = new Point(535, 278);
+            label11.Location = new Point(545, 267);
             label11.Name = "label11";
             label11.Size = new Size(125, 15);
             label11.TabIndex = 19;
             label11.Text = "Forma de Pagamento";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label12.Location = new Point(492, 323);
+            label12.Name = "label12";
+            label12.Size = new Size(40, 15);
+            label12.TabIndex = 20;
+            label12.Text = "Valor:";
+            label12.Visible = false;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label13.Location = new Point(491, 364);
+            label13.Name = "label13";
+            label13.Size = new Size(41, 15);
+            label13.TabIndex = 21;
+            label13.Text = "Troco:";
+            label13.Visible = false;
+            // 
+            // textBoxValor
+            // 
+            textBoxValor.Location = new Point(549, 321);
+            textBoxValor.Name = "textBoxValor";
+            textBoxValor.Size = new Size(121, 23);
+            textBoxValor.TabIndex = 22;
+            textBoxValor.Visible = false;
+            textBoxValor.TextChanged += textBoxValor_TextChanged;
+            // 
+            // textBoxTroco
+            // 
+            textBoxTroco.Location = new Point(549, 361);
+            textBoxTroco.Name = "textBoxTroco";
+            textBoxTroco.ReadOnly = true;
+            textBoxTroco.Size = new Size(121, 23);
+            textBoxTroco.TabIndex = 23;
+            textBoxTroco.Visible = false;
+            textBoxTroco.TextChanged += textBox3_TextChanged;
             // 
             // Form1
             // 
@@ -237,10 +283,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             ClientSize = new Size(723, 448);
+            Controls.Add(textBoxTroco);
+            Controls.Add(textBoxValor);
+            Controls.Add(label13);
+            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(comboBox1);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxNome);
             Controls.Add(label9);
             Controls.Add(label7);
             Controls.Add(numericUpDown1);
@@ -282,9 +332,13 @@
         private NumericUpDown numericUpDown1;
         private Label label7;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox textBoxNome;
         private ComboBox comboBox1;
         private Label label10;
         private Label label11;
+        private Label label12;
+        private Label label13;
+        private TextBox textBoxValor;
+        private TextBox textBoxTroco;
     }
 }
