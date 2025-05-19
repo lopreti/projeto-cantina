@@ -50,7 +50,7 @@
             textBoxTroco = new TextBox();
             label6 = new Label();
             label8 = new Label();
-            comboBox2 = new ComboBox();
+            checkBox1 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -141,9 +141,9 @@
             label5.ForeColor = Color.LightGray;
             label5.Location = new Point(566, 273);
             label5.Name = "label5";
-            label5.Size = new Size(42, 19);
+            label5.Size = new Size(0, 19);
             label5.TabIndex = 9;
-            label5.Text = "Total";
+            label5.Click += label5_Click;
             // 
             // numericUpDown1
             // 
@@ -278,14 +278,16 @@
             label8.TabIndex = 26;
             label8.Text = "Forma de Retirada";
             // 
-            // comboBox2
+            // checkBox1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(180, 375);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 25;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            checkBox1.AutoSize = true;
+            checkBox1.BackColor = Color.Transparent;
+            checkBox1.Location = new Point(180, 377);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(92, 19);
+            checkBox1.TabIndex = 27;
+            checkBox1.Text = "Para Viagem";
+            checkBox1.UseVisualStyleBackColor = false;
             // 
             // TelaVendas
             // 
@@ -294,8 +296,8 @@
             BackColor = Color.Lavender;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(checkBox1);
             Controls.Add(label8);
-            Controls.Add(comboBox2);
             Controls.Add(label6);
             Controls.Add(textBoxTroco);
             Controls.Add(textBoxValor);
@@ -348,6 +350,6 @@
         private TextBox textBoxTroco;
         private Label label6;
         private Label label8;
-        private ComboBox comboBox2;
+        private CheckBox checkBox1;
     }
 }

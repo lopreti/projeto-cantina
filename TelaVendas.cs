@@ -7,7 +7,7 @@ namespace Cantinaa
     public partial class TelaVendas : Form
     {
         private List<Produtos> listaProdutos = new List<Produtos>();
-      
+
         private List<Produtos> carrinho = new List<Produtos>();
 
         private List<double> valores = new List<double>();
@@ -18,7 +18,7 @@ namespace Cantinaa
         {
             InitializeComponent();
 
-            
+
         }
         private void LimparTela()
         {
@@ -31,7 +31,6 @@ namespace Cantinaa
             textBoxValor.Clear();
             textBoxTroco.Clear();
             textBoxNome.Clear();
-            comboBox2.SelectedIndex = -1;
         }
         private bool ValidarPagamento()
         {
@@ -133,7 +132,7 @@ namespace Cantinaa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             numericUpDown1.Value = 1;
 
             listaProdutos.Add(new Produtos("Pão de Queijo", 3.50));
@@ -152,9 +151,9 @@ namespace Cantinaa
             comboBox1.Items.Add("Pix");
             comboBox1.Items.Add("Cartão de Crédito");
             comboBox1.Items.Add("Cartão de Débito");
+            comboBox1.Items.Add("Vale Refeição");
+            comboBox1.Items.Add("Vale Alimentação");
 
-            comboBox2.Items.Add("Viagem");
-            comboBox2.Items.Add("Local");
 
         }
 
@@ -168,14 +167,14 @@ namespace Cantinaa
                 return;
             }
 
-            if (comboBox2.SelectedIndex == -1) {
-                MessageBox.Show("Escolha a forma de retirada!");
-                return;
-            }
-
             if (textBoxNome.Text == string.Empty)
             {
                 MessageBox.Show("Digite um nome!");
+                return;
+            }
+            if (listBoxCarrinho.Items.Count == 0)
+            {
+                MessageBox.Show("Carrinho Vazio");
                 return;
             }
 
@@ -275,6 +274,21 @@ Data/Hora: {dataHora}
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 
         }
