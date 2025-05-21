@@ -1,12 +1,12 @@
 ﻿using System;
 
-internal class Produtos
+internal class ClasseProdutos
 {
     private string descricao;
     private double valor;
     private int quantidade;
 
-    public Produtos()
+    public ClasseProdutos()
     {
         descricao = "";
         valor = 0;
@@ -14,7 +14,7 @@ internal class Produtos
 
     }
 
-    public Produtos(string descricao, double valor)
+    public ClasseProdutos(string descricao, double valor)
     {
         this.descricao = descricao;
         this.valor = valor;

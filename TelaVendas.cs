@@ -6,9 +6,9 @@ namespace Cantinaa
 
     public partial class TelaVendas : Form
     {
-        private List<Produtos> listaProdutos = new List<Produtos>();
+        private List<ClasseProdutos> listaProdutos = new List<ClasseProdutos>();
 
-        private List<Produtos> carrinho = new List<Produtos>();
+        private List<ClasseProdutos> carrinho = new List<ClasseProdutos>();
 
         private List<double> valores = new List<double>();
 
@@ -84,7 +84,7 @@ namespace Cantinaa
 
             else
             {
-                Produtos produtoSelecionado = listaProdutos[listBoxProduto.SelectedIndex];
+                ClasseProdutos produtoSelecionado = listaProdutos[listBoxProduto.SelectedIndex];
                 double valorItem = produtoSelecionado.Valor * quantidade;
                 string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
 
@@ -132,19 +132,20 @@ namespace Cantinaa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
             numericUpDown1.Value = 1;
 
-            listaProdutos.Add(new Produtos("Pão de Queijo", 3.50));
-            listaProdutos.Add(new Produtos("Coxinha", 5.00));
-            listaProdutos.Add(new Produtos("Pastel de Carne", 6.00));
-            listaProdutos.Add(new Produtos("Pastel de Queijo", 5.50));
-            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00));
-            listaProdutos.Add(new Produtos("Refrigerante Lata", 4.50));
-            listaProdutos.Add(new Produtos("Hambúrguer Simples", 8.00));
-            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00));
-            listaProdutos.Add(new Produtos("X-Tudo", 12.00));
-            listaProdutos.Add(new Produtos("Água Mineral (500ml)", 2.50));
+
+            listaProdutos.Add(new ClasseProdutos("Pão de Queijo", 3.50));
+            listaProdutos.Add(new ClasseProdutos("Coxinha", 5.00));
+            listaProdutos.Add(new ClasseProdutos("Pastel de Carne", 6.00));
+            listaProdutos.Add(new ClasseProdutos("Pastel de Queijo", 5.50));
+            listaProdutos.Add(new ClasseProdutos("Suco Natural (300ml)", 4.00));
+            listaProdutos.Add(new ClasseProdutos("Refrigerante Lata", 4.50));
+            listaProdutos.Add(new ClasseProdutos("Hambúrguer Simples", 8.00));
+            listaProdutos.Add(new ClasseProdutos("Hambúrguer com Queijo", 9.00));
+            listaProdutos.Add(new ClasseProdutos("X-Tudo", 12.00));
+            listaProdutos.Add(new ClasseProdutos("Água Mineral (500ml)", 2.50));
             listBoxProduto.Items.AddRange(listaProdutos.ToArray());
 
             comboBox1.Items.Add("Dinheiro");
@@ -189,6 +190,7 @@ namespace Cantinaa
                 MessageBox.Show(@$"EXTRATO
 ------------------------------------
 Pedido finalizado, {textBoxNome.Text}!
+
 Total da compra: R$ {totalPedido:F2}
 
 Forma de Pagamento: Dinheiro
@@ -204,18 +206,26 @@ Data/Hora: {dataHora}
                 MessageBox.Show(@$"EXTRATO
 ------------------------------------
 Pedido finalizado, {textBoxNome.Text}!
-Total da compra: R$ {totalPedido:F2}
 
+Total da compra: R$ {totalPedido:F2}
 Forma de Pagamento: {comboBox1.SelectedItem}
+
 Data/Hora: {dataHora}
 ------------------------------------");
             }
 
             LimparTela();
+            TelaBalcao telabalcao = new TelaBalcao();
+            telabalcao.Show();
         }
 
         private void listBoxCarrinho_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxCarrinho.SelectedIndex != -1)
+            {
+                label9.Visible = false;
+                numericUpDown1.Visible = false;
+            }
 
         }
 
@@ -291,6 +301,15 @@ Data/Hora: {dataHora}
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxProduto.SelectedIndex != -1) 
+            {
+                label9.Visible = true;
+                numericUpDown1.Visible = true;
+            }
         }
     }
 }

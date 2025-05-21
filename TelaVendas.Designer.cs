@@ -64,6 +64,7 @@
             listBoxProduto.Name = "listBoxProduto";
             listBoxProduto.Size = new Size(253, 184);
             listBoxProduto.TabIndex = 0;
+            listBoxProduto.SelectedIndexChanged += listBoxProduto_SelectedIndexChanged;
             // 
             // listBoxCarrinho
             // 
