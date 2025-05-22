@@ -261,12 +261,7 @@ Data/Hora: {dataHora}
 
         private void textBoxValor_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
-            {
-                textBoxValor.Visible = true;
-                label12.Visible = true;
-
-                if (double.TryParse(textBoxValor.Text, out double valorPago))
+            if (double.TryParse(textBoxValor.Text, out double valorPago))
                 {
                     if (valorPago >= totalPedido)
                     {
@@ -274,9 +269,7 @@ Data/Hora: {dataHora}
                         textBoxTroco.Text = $"R$ {troco}";
                     }
                 }
-
             }
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

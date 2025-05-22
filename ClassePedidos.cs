@@ -1,30 +1,34 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
-
 
 namespace Cantinaa
 {
     internal class ClassePedidos
     {
+        private List<ClasseProdutos> ItensPedidos;
+        private DateTime DataPedido;
         private string NomeCliente;
         private string FormaPagamento;
-        private string isViagem;
+        private bool IsViagem;
 
 
         public ClassePedidos()
         {
+            ItensPedidos = new List<ClasseProdutos>();
+            DataPedido = DateTime.Now;
             NomeCliente = "";
             FormaPagamento = "";
-            isViagem = "";
+            IsViagem = false;
 
         }
 
-        public ClassePedidos(string NomeCliente, string FormaPagamento, string isViagem)
+        public ClassePedidos(string nomeCliente, string formaPagamento, bool isViagem, List<ClasseProdutos> itensPedidos)
         {
+            this.ItensPedidos = itensPedidos;
+            this.DataPedido = DateTime.Now;
             this.NomeCliente = nomeCliente;
-            this.FormaPagamento= formaPagamento;
-            this.isViagem = isviagem;
+            this.FormaPagamento = formaPagamento;
+            this.IsViagem = isViagem;
         }
 
         public string nomeCliente
@@ -35,14 +39,20 @@ namespace Cantinaa
 
         public string formaPagamento
         {
-            get { return FormaPagamento; }
+            get { return FormaPagamento; } 
             set { FormaPagamento = value; }
         }
-        public string isviagem
+        public bool isviagem
         {
-            get { return isViagem; }
-            set { isViagem = value; }
+            get { return IsViagem; }
+            set { IsViagem = value; }
         }
 
+        public List<ClasseProdutos> itensPedidos
+        { 
+            get { return ItensPedidos; }
+            set {  ItensPedidos = value; }
+        }
     }
 }
+
