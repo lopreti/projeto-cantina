@@ -10,8 +10,6 @@ namespace Cantinaa
 
         private List<Produtos> carrinho = new List<Produtos>();
 
-        private List<double> valores = new List<double>();
-
         private double totalPedido = 0;
 
         public TelaVendas()
@@ -67,6 +65,8 @@ namespace Cantinaa
             label7.Visible = false;
             label3.Visible = false;
 
+            int quantidade = (int)numericUpDown1.Value;
+
             if (listBoxProduto.SelectedIndex == -1)
             {
                 label3.Text = "Selecione um produto!";
@@ -74,7 +74,6 @@ namespace Cantinaa
                 return;
             }
 
-            int quantidade = (int)numericUpDown1.Value;
             if (quantidade <= 0)
             {
                 label7.Text = "Quantidade deve ser maior que zero!";
@@ -85,18 +84,20 @@ namespace Cantinaa
             else
             {
                 Produtos produtoSelecionado = listaProdutos[listBoxProduto.SelectedIndex];
-                double valorItem = produtoSelecionado.Valor * quantidade;
+                Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade);
+
+                carrinho.Add(produtoCarrinho);
+
+                double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;
                 string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
 
-                carrinho.Add(produtoSelecionado);
                 listBoxCarrinho.Items.Add(itemTexto);
-                valores.Add(valorItem);
 
                 totalPedido += valorItem;
                 label5.Text = $"Total: R${totalPedido:F2}";
-                double preco = produtoSelecionado.Valor * quantidade;
-                label6.Text = "+ R$ " + preco.ToString("F2");
+                label6.Text = "+ R$ " + valorItem.ToString("F2");
                 label6.ForeColor = Color.Yellow;
+
                 numericUpDown1.Value = 1;
                 listBoxProduto.SelectedIndex = -1;
             }
@@ -114,8 +115,9 @@ namespace Cantinaa
             else
             {
                 int escolhido = listBoxCarrinho.SelectedIndex;
-                double valorItem = valores[escolhido];
+                Produtos produtoRemovido = carrinho[escolhido];
 
+                double valorItem = produtoRemovido.Valor * produtoRemovido.Quantidade;
                 totalPedido -= valorItem;
                 label6.Text = "- R$ " + valorItem.ToString("F2");
                 label6.ForeColor = Color.LightGray;
@@ -123,7 +125,6 @@ namespace Cantinaa
                 numericUpDown1.Value = 1;
                 carrinho.RemoveAt(escolhido);
                 listBoxCarrinho.Items.RemoveAt(escolhido);
-                valores.RemoveAt(escolhido);
 
                 label5.Text = $"Total: R${totalPedido:F2}";
             }
@@ -132,7 +133,7 @@ namespace Cantinaa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             numericUpDown1.Value = 1;
 
 
@@ -265,14 +266,14 @@ Data/Hora: {dataHora}
         private void textBoxValor_TextChanged(object sender, EventArgs e)
         {
             if (double.TryParse(textBoxValor.Text, out double valorPago))
+            {
+                if (valorPago >= totalPedido)
                 {
-                    if (valorPago >= totalPedido)
-                    {
-                        double troco = valorPago - totalPedido;
-                        textBoxTroco.Text = $"R$ {troco}";
-                    }
+                    double troco = valorPago - totalPedido;
+                    textBoxTroco.Text = $"R$ {troco}";
                 }
             }
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -301,11 +302,16 @@ Data/Hora: {dataHora}
 
         private void listBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxProduto.SelectedIndex != -1) 
+            if (listBoxProduto.SelectedIndex != -1)
             {
                 label9.Visible = true;
                 numericUpDown1.Visible = true;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

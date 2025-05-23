@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,21 +17,23 @@ namespace Cantinaa
         {
             InitializeComponent();
         }
-        private void AtualizarBalcao()
+        public void AtualizarBalcao()
         {
+            listBox1.Items.Clear();
+
             foreach (Pedidos pedido in PersistenciaPedido.pedidos)
             {
-
-                string resumo = $"{pedido.nomeCliente}: ";
-                List<string> itensFormatados = new List<string>();
-
-                foreach (Produtos item in pedido.itensPedidos)
-                {
-                    itensFormatados.Add($"{item.Quantidade}x {item.Descricao}");
-                }
-
-                resumo += string.Join(", ", itensFormatados);
+                string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
                 listBox1.Items.Add(resumo);
+            }
+
+            listBox2.Items.Clear();
+            foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
+            {
+                string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
+                listBox2.Items.Add(resumo);
             }
         }
 
@@ -41,10 +44,23 @@ namespace Cantinaa
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBox1.Items.Add(PersistenciaPedido.pedidos);
+            int pedidoEscolhido = listBox1.SelectedIndex;
+            if (pedidoEscolhido >= 0 && pedidoEscolhido < PersistenciaPedido.pedidos.Count)
+            {
+                Pedidos pedidoSelecionado = PersistenciaPedido.pedidos[pedidoEscolhido];
+
+                TelaPedido telapedido = new TelaPedido(pedidoSelecionado, this);
+                telapedido.Show();
+            }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

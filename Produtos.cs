@@ -23,6 +23,7 @@ internal class Produtos
     public string Descricao
     {
         get { return descricao; }
+        set { descricao = value; }
     }
 
     public double Valor

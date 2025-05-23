@@ -51,7 +51,9 @@
             label6 = new Label();
             label8 = new Label();
             checkBox1 = new CheckBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // listBoxProduto
@@ -290,6 +292,18 @@
             checkBox1.Text = "Para Viagem";
             checkBox1.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(734, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 34);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 28;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // TelaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -297,6 +311,7 @@
             BackColor = Color.Lavender;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(pictureBox1);
             Controls.Add(checkBox1);
             Controls.Add(label8);
             Controls.Add(label6);
@@ -324,6 +339,7 @@
             Text = "Tela Vendas";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -352,5 +368,6 @@
         private Label label6;
         private Label label8;
         private CheckBox checkBox1;
+        private PictureBox pictureBox1;
     }
 }
