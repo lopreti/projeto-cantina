@@ -1,23 +1,23 @@
 ﻿using System;
 
-internal class ClasseProdutos
+internal class Produtos
 {
     private string descricao;
     private double valor;
     private int quantidade;
 
-    public ClasseProdutos()
+    public Produtos()
     {
         descricao = "";
         valor = 0;
         quantidade = 0;
-
     }
 
-    public ClasseProdutos(string descricao, double valor)
+    public Produtos(string descricao, double valor, int quantidade)
     {
         this.descricao = descricao;
         this.valor = valor;
+        this.quantidade = quantidade;
     }
 
     public string Descricao

@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 
 namespace Cantinaa
 {
-    internal class ClassePedidos
+    internal class Pedidos
     {
-        private List<ClasseProdutos> ItensPedidos;
+        private List<Produtos> ItensPedidos;
         private DateTime DataPedido;
         private string NomeCliente;
         private string FormaPagamento;
         private bool IsViagem;
 
 
-        public ClassePedidos()
+        public Pedidos()
         {
-            ItensPedidos = new List<ClasseProdutos>();
+            ItensPedidos = new List<Produtos>();
             DataPedido = DateTime.Now;
             NomeCliente = "";
             FormaPagamento = "";
@@ -22,7 +23,7 @@ namespace Cantinaa
 
         }
 
-        public ClassePedidos(string nomeCliente, string formaPagamento, bool isViagem, List<ClasseProdutos> itensPedidos)
+        public Pedidos(string nomeCliente, string formaPagamento, bool isViagem, List<Produtos> itensPedidos)
         {
             this.ItensPedidos = itensPedidos;
             this.DataPedido = DateTime.Now;
@@ -48,10 +49,14 @@ namespace Cantinaa
             set { IsViagem = value; }
         }
 
-        public List<ClasseProdutos> itensPedidos
+        public List<Produtos> itensPedidos
         { 
             get { return ItensPedidos; }
             set {  ItensPedidos = value; }
+        }
+        public override string ToString()
+        {
+            return $"{itensPedidos.ToString}";
         }
     }
 }

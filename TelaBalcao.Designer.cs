@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaBalcao));
+            listBox1 = new ListBox();
             SuspendLayout();
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(95, 115);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(611, 244);
+            listBox1.TabIndex = 0;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // TelaBalcao
             // 
@@ -37,6 +48,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(listBox1);
             Name = "TelaBalcao";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
@@ -45,5 +57,7 @@
         }
 
         #endregion
+
+        private ListBox listBox1;
     }
 }
