@@ -21,22 +21,25 @@ namespace Cantinaa
         {
             string viagem = "";
             listBox1.Items.Clear();
-            bool chapaa = false;
+
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidos)
             {
-                if (pedido.isviagem == true)
+                if (pedido.statusPedido == Status.Pronto)
                 {
-                    viagem = "- Para Viagem";
-                }
-                else
-                {
-                    viagem = "";
-                }
+                    if (pedido.isviagem == true)
+                    {
+                        viagem = "- Para Viagem";
+                    }
+                    else
+                    {
+                        viagem = "";
+                    }
 
-                string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem}";
-                listBox1.Items.Add(resumo);
+                    string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                    string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem}";
+                    listBox1.Items.Add(resumo);
+                }
             }
 
             listBox2.Items.Clear();
@@ -78,6 +81,10 @@ namespace Cantinaa
 
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cozinha cozinha = new Cozinha();
+            cozinha.Show();
+        }
     }
 }

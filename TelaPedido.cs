@@ -40,7 +40,7 @@ namespace Cantinaa
 
             label1.Text = pedido.nomeCliente;
 
-            
+
             listBox1.Items.AddRange(itensFormatados.ToArray());
         }
 
@@ -64,6 +64,11 @@ namespace Cantinaa
                 tela.AtualizarBalcao();
                 this.Close();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

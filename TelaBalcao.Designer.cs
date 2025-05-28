@@ -32,6 +32,7 @@
             listBox1 = new ListBox();
             button1 = new Button();
             listBox2 = new ListBox();
+            button2 = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -65,12 +66,23 @@
             listBox2.TabIndex = 2;
             listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
+            // button2
+            // 
+            button2.Location = new Point(669, 31);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 3;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // TelaBalcao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(button2);
             Controls.Add(listBox2);
             Controls.Add(button1);
             Controls.Add(listBox1);
@@ -86,5 +98,6 @@
         private ListBox listBox1;
         private Button button1;
         private ListBox listBox2;
+        private Button button2;
     }
 }

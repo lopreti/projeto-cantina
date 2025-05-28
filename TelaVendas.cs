@@ -213,8 +213,28 @@ Forma de Pagamento: {comboBox1.SelectedItem}
 Data/Hora: {dataHora}
 ------------------------------------");
             }
-           
+
+            bool temChapa = false;
+
+            foreach (Produtos produtos in carrinho)
+            {
+                if (produtos.IsChapa)
+                {
+                    temChapa = true;
+                    break;
+                }
+            }
             Pedidos PedidoFeito = new Pedidos(textBoxNome.Text, comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
+
+            if (temChapa)
+            {
+                PedidoFeito.statusPedido = Status.Preparando;
+            }
+            else
+            {
+                PedidoFeito.statusPedido = Status.Pronto;
+            }
+
             PersistenciaPedido.pedidos.Add(PedidoFeito);
 
             LimparTela();
