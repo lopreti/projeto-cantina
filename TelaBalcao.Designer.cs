@@ -38,9 +38,9 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(117, 140);
+            listBox1.Location = new Point(109, 140);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(241, 244);
+            listBox1.Size = new Size(305, 244);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -48,7 +48,7 @@
             // 
             button1.Location = new Point(12, 416);
             button1.Name = "button1";
-            button1.Size = new Size(82, 33);
+            button1.Size = new Size(78, 33);
             button1.TabIndex = 1;
             button1.Text = "<";
             button1.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             listBox2.Enabled = false;
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(492, 170);
+            listBox2.Location = new Point(489, 170);
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(210, 214);
             listBox2.TabIndex = 2;

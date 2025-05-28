@@ -16,8 +16,8 @@ namespace Cantinaa
         {
             InitializeComponent();
 
-
         }
+
         private void LimparTela()
         {
             listBoxCarrinho.Items.Clear();
@@ -29,6 +29,7 @@ namespace Cantinaa
             textBoxValor.Clear();
             textBoxTroco.Clear();
             textBoxNome.Clear();
+            checkBox1.Checked = false;
         }
         private bool ValidarPagamento()
         {
@@ -84,7 +85,7 @@ namespace Cantinaa
             else
             {
                 Produtos produtoSelecionado = listaProdutos[listBoxProduto.SelectedIndex];
-                Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade);
+                Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa);
 
                 carrinho.Add(produtoCarrinho);
 
@@ -133,20 +134,18 @@ namespace Cantinaa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             numericUpDown1.Value = 1;
 
-
-            listaProdutos.Add(new Produtos("Pão de Queijo", 3.50, 1));
-            listaProdutos.Add(new Produtos("Coxinha", 5.00, 1));
-            listaProdutos.Add(new Produtos("Pastel de Carne", 6.00, 1));
-            listaProdutos.Add(new Produtos("Pastel de Queijo", 5.50, 1));
-            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00, 1));
-            listaProdutos.Add(new Produtos("Refrigerante Lata", 4.50, 1));
-            listaProdutos.Add(new Produtos("Hambúrguer Simples", 8.00, 1));
-            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00, 1));
-            listaProdutos.Add(new Produtos("X-Tudo", 12.00, 1));
-            listaProdutos.Add(new Produtos("Água Mineral (500ml)", 2.50, 1));
+            listaProdutos.Add(new Produtos("Pão de Queijo", 3.50, 1, false));
+            listaProdutos.Add(new Produtos("Coxinha", 5.00, 1, false));
+            listaProdutos.Add(new Produtos("Pastel de Carne", 6.00, 1, true));
+            listaProdutos.Add(new Produtos("Pastel de Queijo", 5.50, 1, true));
+            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00, 1,false));
+            listaProdutos.Add(new Produtos("Refrigerante Lata", 4.50, 1, false));
+            listaProdutos.Add(new Produtos("Hambúrguer Simples", 8.00, 1, true));
+            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00, 1,true));
+            listaProdutos.Add(new Produtos("X-Tudo", 12.00, 1, true));
+            listaProdutos.Add(new Produtos("Água Mineral (500ml)", 2.50, 1, false));
             listBoxProduto.Items.AddRange(listaProdutos.ToArray());
 
             comboBox1.Items.Add("Dinheiro");
@@ -214,13 +213,13 @@ Forma de Pagamento: {comboBox1.SelectedItem}
 Data/Hora: {dataHora}
 ------------------------------------");
             }
+           
             Pedidos PedidoFeito = new Pedidos(textBoxNome.Text, comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
             PersistenciaPedido.pedidos.Add(PedidoFeito);
 
             LimparTela();
             TelaBalcao telabalcao = new TelaBalcao();
             telabalcao.Show();
-
         }
 
         private void listBoxCarrinho_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,25 +279,13 @@ Data/Hora: {dataHora}
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void label5_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void listBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -311,7 +298,13 @@ Data/Hora: {dataHora}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TelaBalcao telabalcao = new TelaBalcao();
+            telabalcao.Show();
         }
     }
 }

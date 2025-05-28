@@ -23,22 +23,25 @@ namespace Cantinaa
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void TelaPedido_Load(object sender, EventArgs e)
         {
+
             listBox1.Items.Clear();
             List<string> itensFormatados = new List<string>();
+
 
             foreach (Produtos item in pedido.itensPedidos)
             {
                 itensFormatados.Add($"{item.Quantidade}x {item.Descricao}");
+
             }
 
             label1.Text = pedido.nomeCliente;
 
-            listBox1.Items.Add(string.Join("  ,  ", itensFormatados));
+            
+            listBox1.Items.AddRange(itensFormatados.ToArray());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

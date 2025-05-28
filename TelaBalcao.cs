@@ -19,12 +19,23 @@ namespace Cantinaa
         }
         public void AtualizarBalcao()
         {
+            string viagem = "";
             listBox1.Items.Clear();
+            bool chapaa = false;
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidos)
             {
+                if (pedido.isviagem == true)
+                {
+                    viagem = "- Para Viagem";
+                }
+                else
+                {
+                    viagem = "";
+                }
+
                 string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
+                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem}";
                 listBox1.Items.Add(resumo);
             }
 
@@ -32,7 +43,7 @@ namespace Cantinaa
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
                 string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
+                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem} ";
                 listBox2.Items.Add(resumo);
             }
         }
@@ -40,7 +51,9 @@ namespace Cantinaa
         private void TelaBalcao_Load(object sender, EventArgs e)
         {
             AtualizarBalcao();
+
         }
+
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -54,7 +67,7 @@ namespace Cantinaa
             }
         }
 
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -64,5 +77,7 @@ namespace Cantinaa
         {
 
         }
+
+        
     }
 }

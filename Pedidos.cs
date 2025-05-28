@@ -11,7 +11,7 @@ namespace Cantinaa
         private string NomeCliente;
         private string FormaPagamento;
         private bool IsViagem;
-
+        private Status StatusPedido;
 
         public Pedidos()
         {
@@ -40,7 +40,7 @@ namespace Cantinaa
 
         public string formaPagamento
         {
-            get { return FormaPagamento; } 
+            get { return FormaPagamento; }
             set { FormaPagamento = value; }
         }
         public bool isviagem
@@ -50,14 +50,23 @@ namespace Cantinaa
         }
 
         public List<Produtos> itensPedidos
-        { 
+        {
             get { return ItensPedidos; }
-            set {  ItensPedidos = value; }
+            set { ItensPedidos = value; }
         }
+
+        public Status statusPedido
+        {
+            get { return StatusPedido; }
+            set { StatusPedido = value; }
+        }
+   
         public override string ToString()
         {
             return $"{itensPedidos.ToString}";
         }
+
     }
 }
+
 
