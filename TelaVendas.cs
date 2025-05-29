@@ -229,14 +229,15 @@ Data/Hora: {dataHora}
             if (temChapa)
             {
                 PedidoFeito.statusPedido = Status.Preparando;
+                PersistenciaPedido.pedidosCozinha.Add(PedidoFeito);
             }
+
             else
             {
                 PedidoFeito.statusPedido = Status.Pronto;
+                PersistenciaPedido.pedidosBalcao.Add(PedidoFeito);
             }
-
-            PersistenciaPedido.pedidos.Add(PedidoFeito);
-
+            
             LimparTela();
             TelaBalcao telabalcao = new TelaBalcao();
             telabalcao.Show();

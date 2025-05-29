@@ -51,7 +51,7 @@ namespace Cantinaa
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            if (PersistenciaPedido.pedidos.Contains(pedido))
+            if (PersistenciaPedido.pedidosBalcao.Contains(pedido))
             {
                 PersistenciaPedido.pedidosEntregues.Insert(0, pedido);
 
@@ -60,7 +60,7 @@ namespace Cantinaa
                     PersistenciaPedido.pedidosEntregues.RemoveAt(5);
                 }
 
-                PersistenciaPedido.pedidos.Remove(pedido);
+                PersistenciaPedido.pedidosBalcao.Remove(pedido);
                 tela.AtualizarBalcao();
                 this.Close();
             }

@@ -68,11 +68,11 @@
             // 
             // button2
             // 
-            button2.Location = new Point(669, 31);
+            button2.Location = new Point(665, 12);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(107, 42);
             button2.TabIndex = 3;
-            button2.Text = "button2";
+            button2.Text = "COZINHA";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 

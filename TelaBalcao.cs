@@ -23,7 +23,7 @@ namespace Cantinaa
             listBox1.Items.Clear();
 
 
-            foreach (Pedidos pedido in PersistenciaPedido.pedidos)
+            foreach (Pedidos pedido in PersistenciaPedido.pedidosBalcao)
             {
                 if (pedido.statusPedido == Status.Pronto)
                 {
@@ -61,9 +61,9 @@ namespace Cantinaa
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int pedidoEscolhido = listBox1.SelectedIndex;
-            if (pedidoEscolhido >= 0 && pedidoEscolhido < PersistenciaPedido.pedidos.Count)
+            if (pedidoEscolhido >= 0 && pedidoEscolhido < PersistenciaPedido.pedidosBalcao.Count)
             {
-                Pedidos pedidoSelecionado = PersistenciaPedido.pedidos[pedidoEscolhido];
+                Pedidos pedidoSelecionado = PersistenciaPedido.pedidosBalcao[pedidoEscolhido];
 
                 TelaPedido telapedido = new TelaPedido(pedidoSelecionado, this);
                 telapedido.Show();

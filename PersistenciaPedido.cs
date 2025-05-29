@@ -8,8 +8,11 @@ namespace Cantinaa
 {
     internal class PersistenciaPedido
     {
-        public static List<Pedidos> pedidos = new List<Pedidos>();
-        
         public static List<Pedidos> pedidosEntregues = new List<Pedidos>();
+
+        public static List<Pedidos> pedidosCozinha = new List<Pedidos>();
+
+        public static List<Pedidos> pedidosBalcao = new List<Pedidos>();
+
     }
 }

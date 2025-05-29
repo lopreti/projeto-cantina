@@ -18,17 +18,19 @@ namespace Cantinaa
             InitializeComponent();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Cozinha_Load(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
-            foreach (Pedidos pedido in PersistenciaPedido.pedidos)
+            foreach (Pedidos pedido in PersistenciaPedido.pedidosCozinha)
             {
+                TextBox txtPedido = new TextBox();
+                txtPedido.Multiline = true;
+                txtPedido.ReadOnly = true;
+                txtPedido.Width = 200;
+                txtPedido.Height = 125;
+                txtPedido.ScrollBars = ScrollBars.Vertical;
+
                 if (pedido.statusPedido == Status.Preparando)
                 {
                     List<string> itensFormatados = new List<string>();
@@ -36,22 +38,17 @@ namespace Cantinaa
 
                     foreach (Produtos item in pedido.itensPedidos)
                     {
-                        itensFormatados.Add($"{pedido.nomeCliente} {item.Quantidade}x {item.Descricao}");
+                        if (item.IsChapa)
+                        {
+                            itensFormatados.Add($"{item.Quantidade}x {item.Descricao}");
+                        }
                     }
 
-                    listBox1.Items.AddRange(itensFormatados.ToArray());
+                 txtPedido.Text = string.Join("\r\n", itensFormatados);
+                 flowLayoutPanel1.Controls.Add(txtPedido);
+                 flowLayoutPanel1.AutoScroll = true;
                 }
             }
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

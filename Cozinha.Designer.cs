@@ -28,37 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            button1 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // listBox1
+            // flowLayoutPanel1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(24, 12);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(745, 289);
-            listBox1.TabIndex = 0;
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(379, 358);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            flowLayoutPanel1.Location = new Point(12, 29);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(758, 323);
+            flowLayoutPanel1.TabIndex = 3;
             // 
             // Cozinha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Controls.Add(listBox1);
+            Controls.Add(flowLayoutPanel1);
             Name = "Cozinha";
             Text = "Cozinha";
             Load += Cozinha_Load;
@@ -66,8 +51,6 @@
         }
 
         #endregion
-
-        private ListBox listBox1;
-        private Button button1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
