@@ -33,6 +33,13 @@
             button1 = new Button();
             listBox2 = new ListBox();
             button2 = new Button();
+            panel1 = new Panel();
+            label1 = new Label();
+            label14 = new Label();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -68,13 +75,71 @@
             // 
             // button2
             // 
-            button2.Location = new Point(665, 12);
+            button2.Location = new Point(661, 417);
             button2.Name = "button2";
-            button2.Size = new Size(107, 42);
+            button2.Size = new Size(90, 32);
             button2.TabIndex = 3;
             button2.Text = "COZINHA";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(466, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(270, 34);
+            panel1.TabIndex = 37;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Black;
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(21, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(37, 15);
+            label1.TabIndex = 31;
+            label1.Text = "Login";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Black;
+            label14.ForeColor = SystemColors.ControlLightLight;
+            label14.Location = new Point(195, 9);
+            label14.Name = "label14";
+            label14.Size = new Size(55, 15);
+            label14.TabIndex = 33;
+            label14.Text = "Produtos";
+            label14.Click += label14_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Black;
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(107, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 15);
+            label2.TabIndex = 32;
+            label2.Text = "Balcão";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(737, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 34);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 36;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // TelaBalcao
             // 
@@ -82,6 +147,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox1);
             Controls.Add(button2);
             Controls.Add(listBox2);
             Controls.Add(button1);
@@ -90,6 +157,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += TelaBalcao_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -99,5 +169,10 @@
         private Button button1;
         private ListBox listBox2;
         private Button button2;
+        private Panel panel1;
+        private Label label1;
+        private Label label14;
+        private Label label2;
+        private PictureBox pictureBox1;
     }
 }

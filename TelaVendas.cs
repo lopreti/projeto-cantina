@@ -12,6 +12,8 @@ namespace Cantinaa
 
         private double totalPedido = 0;
 
+        private bool menuAberto = false;
+
         public TelaVendas()
         {
             InitializeComponent();
@@ -140,10 +142,10 @@ namespace Cantinaa
             listaProdutos.Add(new Produtos("Coxinha", 5.00, 1, false));
             listaProdutos.Add(new Produtos("Pastel de Carne", 6.00, 1, true));
             listaProdutos.Add(new Produtos("Pastel de Queijo", 5.50, 1, true));
-            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00, 1,false));
+            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00, 1, false));
             listaProdutos.Add(new Produtos("Refrigerante Lata", 4.50, 1, false));
             listaProdutos.Add(new Produtos("Hambúrguer Simples", 8.00, 1, true));
-            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00, 1,true));
+            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00, 1, true));
             listaProdutos.Add(new Produtos("X-Tudo", 12.00, 1, true));
             listaProdutos.Add(new Produtos("Água Mineral (500ml)", 2.50, 1, false));
             listBoxProduto.Items.AddRange(listaProdutos.ToArray());
@@ -155,7 +157,7 @@ namespace Cantinaa
             comboBox1.Items.Add("Vale Refeição");
             comboBox1.Items.Add("Vale Alimentação");
 
-
+            panel1.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -237,7 +239,7 @@ Data/Hora: {dataHora}
                 PedidoFeito.statusPedido = Status.Pronto;
                 PersistenciaPedido.pedidosBalcao.Add(PedidoFeito);
             }
-            
+
             LimparTela();
             TelaBalcao telabalcao = new TelaBalcao();
             telabalcao.Show();
@@ -306,7 +308,7 @@ Data/Hora: {dataHora}
 
         }
 
-        
+
 
         private void listBoxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -319,13 +321,31 @@ Data/Hora: {dataHora}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+            if (menuAberto)
+            {
+                panel1.Visible = false;
+                menuAberto = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+                menuAberto = true;
+            }
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            TelaBalcao telaBalcao = new TelaBalcao();
+            telaBalcao.Show();
+
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label14_Click(object sender, EventArgs e)
         {
-            TelaBalcao telabalcao = new TelaBalcao();
-            telabalcao.Show();
         }
     }
 }

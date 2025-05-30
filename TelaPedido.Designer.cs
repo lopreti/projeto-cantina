@@ -41,6 +41,7 @@
             // 
             listBox1.BackColor = Color.White;
             listBox1.BorderStyle = BorderStyle.None;
+            listBox1.Enabled = false;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(106, 161);

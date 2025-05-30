@@ -52,9 +52,13 @@
             label8 = new Label();
             checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
-            button4 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label14 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // listBoxProduto
@@ -296,8 +300,9 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(734, 4);
+            pictureBox1.Location = new Point(739, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(38, 34);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -305,15 +310,52 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // button4
+            // label1
             // 
-            button4.Location = new Point(687, 415);
-            button4.Name = "button4";
-            button4.Size = new Size(70, 34);
-            button4.TabIndex = 29;
-            button4.Text = ">";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Black;
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(21, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(37, 15);
+            label1.TabIndex = 31;
+            label1.Text = "Login";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Black;
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(107, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 15);
+            label2.TabIndex = 32;
+            label2.Text = "Balcão";
+            label2.Click += label2_Click;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Black;
+            label14.ForeColor = SystemColors.ControlLightLight;
+            label14.Location = new Point(195, 9);
+            label14.Name = "label14";
+            label14.Size = new Size(55, 15);
+            label14.TabIndex = 33;
+            label14.Text = "Produtos";
+            label14.Click += label14_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(label2);
+            panel1.Location = new Point(468, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(270, 34);
+            panel1.TabIndex = 35;
             // 
             // TelaVendas
             // 
@@ -322,7 +364,7 @@
             BackColor = Color.Lavender;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
-            Controls.Add(button4);
+            Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(checkBox1);
             Controls.Add(label8);
@@ -352,6 +394,8 @@
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -381,6 +425,9 @@
         private Label label8;
         private CheckBox checkBox1;
         private PictureBox pictureBox1;
-        private Button button4;
+        private Label label1;
+        private Label label2;
+        private Label label14;
+        private Panel panel1;
     }
 }

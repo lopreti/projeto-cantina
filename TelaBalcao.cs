@@ -13,6 +13,8 @@ namespace Cantinaa
 {
     public partial class TelaBalcao : Form
     {
+        bool menuAberto = false;
+
         public TelaBalcao()
         {
             InitializeComponent();
@@ -54,7 +56,7 @@ namespace Cantinaa
         private void TelaBalcao_Load(object sender, EventArgs e)
         {
             AtualizarBalcao();
-
+            panel1.Visible = false;
         }
 
 
@@ -70,7 +72,6 @@ namespace Cantinaa
             }
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -85,6 +86,28 @@ namespace Cantinaa
         {
             Cozinha cozinha = new Cozinha();
             cozinha.Show();
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            TelaVendas telaVendas = new TelaVendas();
+            telaVendas.Show();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (menuAberto)
+            {
+                panel1.Visible = false;
+                menuAberto = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+                menuAberto = true;
+            }
         }
     }
 }
