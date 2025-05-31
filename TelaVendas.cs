@@ -294,6 +294,10 @@ Data/Hora: {dataHora}
                     double troco = valorPago - totalPedido;
                     textBoxTroco.Text = $"R$ {troco}";
                 }
+                else
+                {
+                    textBoxTroco.Text = "Insuficiente!";
+                }
             }
         }
 
@@ -341,6 +345,7 @@ Data/Hora: {dataHora}
             panel1.Visible = false;
             TelaBalcao telaBalcao = new TelaBalcao();
             telaBalcao.Show();
+            this.Close();
 
         }
 

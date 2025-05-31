@@ -21,6 +21,7 @@ namespace Cantinaa
         }
         public void AtualizarBalcao()
         {
+            panel1.Visible = false;
             string viagem = "";
             listBox1.Items.Clear();
 
@@ -56,9 +57,7 @@ namespace Cantinaa
         private void TelaBalcao_Load(object sender, EventArgs e)
         {
             AtualizarBalcao();
-            panel1.Visible = false;
         }
-
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,7 +83,7 @@ namespace Cantinaa
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cozinha cozinha = new Cozinha();
+            Cozinha cozinha = new Cozinha(this);
             cozinha.Show();
         }
 

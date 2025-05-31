@@ -13,29 +13,26 @@ namespace Cantinaa
 {
     public partial class Cozinha : Form
     {
-        public Cozinha()
+        private List<Pedidos> listaAuxiliar = new List<Pedidos>();
+
+        private TelaBalcao telaBalcao;
+
+        public Cozinha(TelaBalcao balcao)
         {
             InitializeComponent();
+            this.telaBalcao = balcao;
         }
 
         private void Cozinha_Load(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            listaAuxiliar.Clear();
+            listBox1.Items.Clear();
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidosCozinha)
             {
-                TextBox txtPedido = new TextBox();
-                txtPedido.Multiline = true;
-                txtPedido.ReadOnly = true;
-                txtPedido.Width = 200;
-                txtPedido.Height = 125;
-                txtPedido.ScrollBars = ScrollBars.Vertical;
-
                 if (pedido.statusPedido == Status.Preparando)
                 {
                     List<string> itensFormatados = new List<string>();
-
-
                     foreach (Produtos item in pedido.itensPedidos)
                     {
                         if (item.IsChapa)
@@ -43,11 +40,32 @@ namespace Cantinaa
                             itensFormatados.Add($"{item.Quantidade}x {item.Descricao}");
                         }
                     }
-
-                 txtPedido.Text = string.Join("\r\n", itensFormatados);
-                 flowLayoutPanel1.Controls.Add(txtPedido);
-                 flowLayoutPanel1.AutoScroll = true;
+                    string textoPedido = string.Join(",   ", itensFormatados);
+                    listBox1.Items.Add(textoPedido);
+                    listaAuxiliar.Add(pedido);
                 }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            int indice = listBox1.SelectedIndex;
+            if (indice != -1)
+            {
+                Pedidos pedidoSelecionado = listaAuxiliar[indice];
+                pedidoSelecionado.statusPedido = Status.Pronto;
+                PersistenciaPedido.pedidosCozinha.Remove(pedidoSelecionado);
+                PersistenciaPedido.pedidosBalcao.Add(pedidoSelecionado);
+                listaAuxiliar.RemoveAt(indice);
+                listBox1.Items.RemoveAt(indice);
+                MessageBox.Show("Pedido entregue para o balcão");
+
+                telaBalcao.AtualizarBalcao();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione o Pedido!");
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Cantinaa
 {
-    partial class Cozinha
+    partial class TelaChamada
     {
         /// <summary>
         /// Required designer variable.
@@ -28,52 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cozinha));
-            listBox1 = new ListBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaChamada));
+            label1 = new Label();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // listBox1
+            // label1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.HorizontalScrollbar = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(105, 119);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(589, 244);
-            listBox1.TabIndex = 4;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 72F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(242, 141);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 128);
+            label1.TabIndex = 0;
+            label1.Text = ".";
+            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
-            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(354, 369);
+            pictureBox1.Location = new Point(344, 299);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(93, 33);
+            pictureBox1.Size = new Size(100, 50);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 6;
+            pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
-            // Cozinha
+            // TelaChamada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 461);
             Controls.Add(pictureBox1);
-            Controls.Add(listBox1);
-            Name = "Cozinha";
-            Text = "Cozinha";
-            Load += Cozinha_Load;
+            Controls.Add(label1);
+            Name = "TelaChamada";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaChamada";
+            Load += TelaChamada_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private ListBox listBox1;
+
+        private Label label1;
         private PictureBox pictureBox1;
     }
 }

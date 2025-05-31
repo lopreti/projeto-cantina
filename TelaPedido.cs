@@ -63,6 +63,8 @@ namespace Cantinaa
                 PersistenciaPedido.pedidosBalcao.Remove(pedido);
                 tela.AtualizarBalcao();
                 this.Close();
+                TelaChamada telaChamada = new TelaChamada(pedido.nomeCliente);
+                telaChamada.Show();
             }
         }
 

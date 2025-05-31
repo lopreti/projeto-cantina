@@ -64,6 +64,7 @@
             // listBoxProduto
             // 
             listBoxProduto.BackColor = SystemColors.Window;
+            listBoxProduto.Cursor = Cursors.Hand;
             listBoxProduto.ForeColor = SystemColors.WindowText;
             listBoxProduto.FormattingEnabled = true;
             listBoxProduto.ItemHeight = 15;
@@ -85,6 +86,7 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Location = new Point(369, 125);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
@@ -95,6 +97,7 @@
             // 
             // button2
             // 
+            button2.Cursor = Cursors.Hand;
             button2.Location = new Point(369, 239);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
@@ -131,6 +134,7 @@
             // 
             button3.Anchor = AnchorStyles.None;
             button3.BackColor = Color.Black;
+            button3.Cursor = Cursors.Hand;
             button3.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Yellow;
             button3.Location = new Point(247, 424);
@@ -155,6 +159,7 @@
             // 
             // numericUpDown1
             // 
+            numericUpDown1.Cursor = Cursors.Hand;
             numericUpDown1.Location = new Point(133, 288);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(120, 23);
@@ -193,6 +198,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.Cursor = Cursors.Hand;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(463, 375);
             comboBox1.Name = "comboBox1";
@@ -290,6 +296,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
+            checkBox1.Cursor = Cursors.Hand;
             checkBox1.Location = new Point(180, 377);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(92, 19);
@@ -314,6 +321,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Black;
+            label1.Cursor = Cursors.Hand;
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(21, 9);
             label1.Name = "label1";
@@ -326,6 +334,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Black;
+            label2.Cursor = Cursors.Hand;
             label2.ForeColor = SystemColors.Control;
             label2.Location = new Point(107, 9);
             label2.Name = "label2";
@@ -338,6 +347,7 @@
             // 
             label14.AutoSize = true;
             label14.BackColor = Color.Black;
+            label14.Cursor = Cursors.Hand;
             label14.ForeColor = SystemColors.ControlLightLight;
             label14.Location = new Point(195, 9);
             label14.Name = "label14";
