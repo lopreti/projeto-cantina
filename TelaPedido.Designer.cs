@@ -33,8 +33,10 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -55,7 +57,7 @@
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(553, 332);
+            pictureBox1.Location = new Point(597, 332);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(93, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -68,7 +70,7 @@
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(173, 332);
+            pictureBox2.Location = new Point(106, 332);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(102, 33);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -89,6 +91,19 @@
             label1.Text = "label1";
             label1.Click += label1_Click;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(351, 332);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(93, 33);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 4;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
             // TelaPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -96,6 +111,7 @@
             BackColor = SystemColors.Window;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(pictureBox3);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -106,6 +122,7 @@
             Load += TelaPedido_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,5 +133,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label1;
+        private PictureBox pictureBox3;
     }
 }

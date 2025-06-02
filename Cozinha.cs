@@ -68,5 +68,10 @@ namespace Cantinaa
                 MessageBox.Show("Selecione o Pedido!");
             }
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

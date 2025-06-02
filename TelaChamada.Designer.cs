@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaChamada));
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -38,24 +40,30 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 72F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Semibold", 50F, FontStyle.Bold | FontStyle.Italic);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(242, 141);
+            label1.Location = new Point(292, 193);
             label1.Name = "label1";
-            label1.Size = new Size(77, 128);
+            label1.Size = new Size(186, 89);
             label1.TabIndex = 0;
-            label1.Text = ".";
+            label1.Text = "label";
             label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(344, 299);
+            pictureBox1.Location = new Point(361, 315);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.Size = new Size(80, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1500;
+            timer1.Tick += timer1_Tick;
             // 
             // TelaChamada
             // 
@@ -78,5 +86,6 @@
 
         private Label label1;
         private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

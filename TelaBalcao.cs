@@ -73,6 +73,8 @@ namespace Cantinaa
 
         private void button1_Click(object sender, EventArgs e)
         {
+            TelaVendas telaVendas = new TelaVendas();
+            telaVendas.ShowDialog();
             this.Close();
         }
 
@@ -87,13 +89,6 @@ namespace Cantinaa
             cozinha.Show();
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            TelaVendas telaVendas = new TelaVendas();
-            telaVendas.Show();
-            this.Close();
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -107,6 +102,14 @@ namespace Cantinaa
                 panel1.Visible = true;
                 menuAberto = true;
             }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            TelaVendas telaVendas = new TelaVendas();
+            telaVendas.ShowDialog();
+            this.Close();
         }
     }
 }

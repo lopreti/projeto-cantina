@@ -336,15 +336,11 @@ Data/Hora: {dataHora}
                 menuAberto = true;
             }
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void label2_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
             TelaBalcao telaBalcao = new TelaBalcao();
-            telaBalcao.Show();
+            telaBalcao.ShowDialog();
             this.Close();
 
         }

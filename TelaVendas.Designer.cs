@@ -52,10 +52,10 @@
             label8 = new Label();
             checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
             label2 = new Label();
             label14 = new Label();
             panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -317,19 +317,6 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Black;
-            label1.Cursor = Cursors.Hand;
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(21, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(37, 15);
-            label1.TabIndex = 31;
-            label1.Text = "Login";
-            label1.Click += label1_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -366,6 +353,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(270, 34);
             panel1.TabIndex = 35;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Black;
+            label1.Cursor = Cursors.Hand;
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(16, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 15);
+            label1.TabIndex = 34;
+            label1.Text = "Chamada";
             // 
             // TelaVendas
             // 
@@ -435,9 +434,9 @@
         private Label label8;
         private CheckBox checkBox1;
         private PictureBox pictureBox1;
-        private Label label1;
         private Label label2;
         private Label label14;
         private Panel panel1;
+        private Label label1;
     }
 }

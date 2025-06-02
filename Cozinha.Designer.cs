@@ -43,13 +43,14 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(589, 244);
             listBox1.TabIndex = 4;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(354, 369);
+            pictureBox1.Location = new Point(353, 369);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(93, 33);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -66,6 +67,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Name = "Cozinha";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cozinha";
             Load += Cozinha_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

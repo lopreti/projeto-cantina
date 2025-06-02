@@ -16,7 +16,6 @@ namespace Cantinaa
         {
             InitializeComponent();
             label1.Text = nomeCliente;
-           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,12 +26,18 @@ namespace Cantinaa
         {
             label1.TextAlign = ContentAlignment.MiddleCenter;
             string nome = label1.Text;
-            if (nome.Length > 10)
+            if (nome.Length > 8)
             {
-                nome = nome.Substring(0, 15) + "...";
+                nome = nome.Substring(0, 8) + "...";
             }
             label1.Text = nome;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            this.Close();
+
+        }
     }
 }

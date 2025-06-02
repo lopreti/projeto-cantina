@@ -72,5 +72,13 @@ namespace Cantinaa
         {
 
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Seu pedido foi cancelado. Dinheiro extornado.");
+            this.Close();
+            PersistenciaPedido.pedidosBalcao.Remove(pedido);
+            tela.AtualizarBalcao();
+        }
     }
 }
