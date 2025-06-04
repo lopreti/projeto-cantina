@@ -63,7 +63,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 461);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Name = "Cozinha";

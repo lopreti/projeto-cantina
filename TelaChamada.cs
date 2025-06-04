@@ -24,7 +24,7 @@ namespace Cantinaa
 
         private void TelaChamada_Load(object sender, EventArgs e)
         {
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             string nome = label1.Text;
             if (nome.Length > 8)
             {

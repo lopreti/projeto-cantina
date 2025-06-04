@@ -365,6 +365,7 @@
             label1.Size = new Size(58, 15);
             label1.TabIndex = 34;
             label1.Text = "Chamada";
+            label1.Click += label1_Click;
             // 
             // TelaVendas
             // 

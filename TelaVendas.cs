@@ -348,5 +348,12 @@ Data/Hora: {dataHora}
         private void label14_Click(object sender, EventArgs e)
         {
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
+            telaChamadaStatus.ShowDialog(); 
+            this.Close();
+        }
     }
 }
