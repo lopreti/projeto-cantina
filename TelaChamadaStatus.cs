@@ -12,8 +12,6 @@ namespace Cantinaa
 {
     public partial class TelaChamadaStatus : Form
     {
-        bool menuAberto = false;
-
         public TelaChamadaStatus()
         {
             InitializeComponent();
@@ -21,7 +19,6 @@ namespace Cantinaa
 
         private void TelaChamadaStatus_Load(object sender, EventArgs e)
         {
-            panel1.Visible = false;
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
@@ -39,32 +36,22 @@ namespace Cantinaa
             }
         }
 
-        private void label14_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            TelaVendas telaVendas = new TelaVendas();
-            telaVendas.ShowDialog();
-            this.Close();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            TelaBalcao telaBalcao = new TelaBalcao();
-            telaBalcao.ShowDialog();
-            this.Close();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (menuAberto)
+            if (listBoxProntos.Items.Count > 0)
             {
-                panel1.Visible = false;
-                menuAberto = false;
+                int ultimoNome = listBoxProntos.Items.Count - 1;
+                listBoxProntos.Items.RemoveAt(ultimoNome);
             }
             else
             {
-                panel1.Visible = true;
-                menuAberto = true;
+                timer1.Stop();
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

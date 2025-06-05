@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaChamada));
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -39,7 +41,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 50F, FontStyle.Bold | FontStyle.Italic);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(3, 193);
+            label1.Location = new Point(3, 185);
             label1.Name = "label1";
             label1.Size = new Size(779, 89);
             label1.TabIndex = 0;
@@ -53,17 +55,29 @@
             timer1.Interval = 1500;
             timer1.Tick += timer1_Tick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(263, 290);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(263, 64);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // TelaChamada
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Name = "TelaChamada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaChamada";
             Load += TelaChamada_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -71,5 +85,6 @@
 
         private Label label1;
         private System.Windows.Forms.Timer timer1;
+        private PictureBox pictureBox1;
     }
 }

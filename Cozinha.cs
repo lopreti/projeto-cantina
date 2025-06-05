@@ -59,8 +59,8 @@ namespace Cantinaa
                 listaAuxiliar.RemoveAt(indice);
                 listBox1.Items.RemoveAt(indice);
                 MessageBox.Show("Pedido entregue para o balcão");
-
                 telaBalcao.AtualizarBalcao();
+               
                 this.Close();
             }
             else

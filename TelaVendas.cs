@@ -232,6 +232,7 @@ Data/Hora: {dataHora}
             {
                 PedidoFeito.statusPedido = Status.Preparando;
                 PersistenciaPedido.pedidosCozinha.Add(PedidoFeito);
+                MessageBox.Show("Seu pedido foi enviado para a cozinha! Espere enquanto preparamos.");
             }
 
             else
@@ -241,8 +242,9 @@ Data/Hora: {dataHora}
             }
 
             LimparTela();
-            TelaBalcao telabalcao = new TelaBalcao();
-            telabalcao.Show();
+            TelaBalcao telaBalcao = new TelaBalcao();
+            telaBalcao.ShowDialog();
+            this.Close();
         }
 
         private void listBoxCarrinho_SelectedIndexChanged(object sender, EventArgs e)
@@ -292,7 +294,7 @@ Data/Hora: {dataHora}
                 if (valorPago >= totalPedido)
                 {
                     double troco = valorPago - totalPedido;
-                    textBoxTroco.Text = $"R$ {troco}";
+                    textBoxTroco.Text = $"R$ {troco:F2}";
                 }
                 else
                 {
@@ -339,6 +341,7 @@ Data/Hora: {dataHora}
         private void label2_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
+            this.Hide();
             TelaBalcao telaBalcao = new TelaBalcao();
             telaBalcao.ShowDialog();
             this.Close();
@@ -351,6 +354,7 @@ Data/Hora: {dataHora}
 
         private void label1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
             telaChamadaStatus.ShowDialog(); 
             this.Close();

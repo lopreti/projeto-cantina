@@ -117,7 +117,7 @@
             label1.BackColor = Color.Black;
             label1.Cursor = Cursors.Hand;
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(16, 9);
+            label1.Location = new Point(193, 9);
             label1.Name = "label1";
             label1.Size = new Size(58, 15);
             label1.TabIndex = 34;
@@ -130,7 +130,7 @@
             label14.BackColor = Color.Black;
             label14.Cursor = Cursors.Hand;
             label14.ForeColor = SystemColors.ControlLightLight;
-            label14.Location = new Point(195, 9);
+            label14.Location = new Point(24, 9);
             label14.Name = "label14";
             label14.Size = new Size(55, 15);
             label14.TabIndex = 33;
@@ -143,7 +143,7 @@
             label2.BackColor = Color.Black;
             label2.Cursor = Cursors.Hand;
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(107, 9);
+            label2.Location = new Point(115, 9);
             label2.Name = "label2";
             label2.Size = new Size(42, 15);
             label2.TabIndex = 32;

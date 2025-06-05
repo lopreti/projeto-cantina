@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaChamadaStatus));
             listBoxProntos = new ListBox();
             listBoxPreparando = new ListBox();
-            panel1 = new Panel();
-            label1 = new Label();
-            label14 = new Label();
-            label2 = new Label();
-            pictureBox1 = new PictureBox();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // listBoxProntos
@@ -64,67 +59,11 @@
             listBoxPreparando.Size = new Size(291, 304);
             listBoxPreparando.TabIndex = 1;
             // 
-            // panel1
+            // timer1
             // 
-            panel1.BackColor = Color.Black;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label14);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(468, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(270, 34);
-            panel1.TabIndex = 37;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Black;
-            label1.Cursor = Cursors.Hand;
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(16, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(58, 15);
-            label1.TabIndex = 34;
-            label1.Text = "Chamada";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.BackColor = Color.Black;
-            label14.Cursor = Cursors.Hand;
-            label14.ForeColor = SystemColors.ControlLightLight;
-            label14.Location = new Point(195, 9);
-            label14.Name = "label14";
-            label14.Size = new Size(55, 15);
-            label14.TabIndex = 33;
-            label14.Text = "Produtos";
-            label14.Click += label14_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Black;
-            label2.Cursor = Cursors.Hand;
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(107, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(42, 15);
-            label2.TabIndex = 32;
-            label2.Text = "Balcão";
-            label2.Click += label2_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(739, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 34);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 36;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            timer1.Enabled = true;
+            timer1.Interval = 5000;
+            timer1.Tick += timer1_Tick;
             // 
             // TelaChamadaStatus
             // 
@@ -132,17 +71,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
-            Controls.Add(panel1);
-            Controls.Add(pictureBox1);
             Controls.Add(listBoxPreparando);
             Controls.Add(listBoxProntos);
             Name = "TelaChamadaStatus";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaChamadaStatus";
             Load += TelaChamadaStatus_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -150,10 +84,6 @@
 
         private ListBox listBoxProntos;
         private ListBox listBoxPreparando;
-        private Panel panel1;
-        private Label label1;
-        private Label label14;
-        private Label label2;
-        private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

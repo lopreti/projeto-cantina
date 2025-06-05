@@ -21,7 +21,6 @@ namespace Cantinaa
         }
         public void AtualizarBalcao()
         {
-            panel1.Visible = false;
             string viagem = "";
             listBox1.Items.Clear();
 
@@ -49,13 +48,14 @@ namespace Cantinaa
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
                 string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem} ";
+                string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
                 listBox2.Items.Add(resumo);
             }
         }
 
         private void TelaBalcao_Load(object sender, EventArgs e)
         {
+            panel1.Visible = false;
             AtualizarBalcao();
         }
 
@@ -67,12 +67,13 @@ namespace Cantinaa
                 Pedidos pedidoSelecionado = PersistenciaPedido.pedidosBalcao[pedidoEscolhido];
 
                 TelaPedido telapedido = new TelaPedido(pedidoSelecionado, this);
-                telapedido.Show();
+                telapedido.ShowDialog();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             TelaVendas telaVendas = new TelaVendas();
             telaVendas.ShowDialog();
             this.Close();
@@ -86,7 +87,8 @@ namespace Cantinaa
         private void button2_Click(object sender, EventArgs e)
         {
             Cozinha cozinha = new Cozinha(this);
-            cozinha.Show();
+            cozinha.ShowDialog();
+            AtualizarBalcao();
         }
 
 
@@ -107,6 +109,7 @@ namespace Cantinaa
         private void label14_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
+            this.Hide();
             TelaVendas telaVendas = new TelaVendas();
             telaVendas.ShowDialog();
             this.Close();
@@ -114,9 +117,15 @@ namespace Cantinaa
 
         private void label1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
             telaChamadaStatus.ShowDialog();
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
