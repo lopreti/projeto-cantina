@@ -22,6 +22,7 @@ namespace Cantinaa
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
+                if (pedido.statusPedido != Status.Exibido)
                 listBoxProntos.Items.Add($" -> {pedido.nomeCliente}");
             }
 
@@ -42,16 +43,16 @@ namespace Cantinaa
             {
                 int ultimoNome = listBoxProntos.Items.Count - 1;
                 listBoxProntos.Items.RemoveAt(ultimoNome);
+
+                foreach (Pedidos pedidos in PersistenciaPedido.pedidosEntregues)
+                {
+                    pedidos.statusPedido = Status.Exibido;
+                }
             }
             else
             {
                 timer1.Stop();
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

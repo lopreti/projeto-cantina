@@ -117,15 +117,9 @@ namespace Cantinaa
 
         private void label1_Click(object sender, EventArgs e)
         {
-            this.Hide();
             TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
             telaChamadaStatus.ShowDialog();
-            this.Close();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

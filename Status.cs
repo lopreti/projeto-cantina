@@ -12,5 +12,6 @@ namespace Cantinaa
         Pronto,
         Cancelado,
         Entregue,
+        Exibido,
     }
 }
