@@ -6,8 +6,6 @@ namespace Cantinaa
 
     public partial class TelaVendas : Form
     {
-        private List<Produtos> listaProdutos = new List<Produtos>();
-
         private List<Produtos> carrinho = new List<Produtos>();
 
         private double totalPedido = 0;
@@ -17,7 +15,6 @@ namespace Cantinaa
         public TelaVendas()
         {
             InitializeComponent();
-
         }
 
         private void LimparTela()
@@ -86,8 +83,36 @@ namespace Cantinaa
 
             else
             {
-                Produtos produtoSelecionado = listaProdutos[listBoxProduto.SelectedIndex];
+                Produtos produtoSelecionado = PersistênciaProduto.listaProdutos[listBoxProduto.SelectedIndex];
                 Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa);
+                Estoque estoque = new Estoque();
+
+                foreach (var item in PersistênciaProduto.listaProdutos) 
+                {
+                    if (item.Descricao == produtoSelecionado.Descricao)
+                    {
+                        if (item.Quantidade < quantidade)
+                        {
+                            MessageBox.Show("Quantidade insuficiente no estoque!");
+                            return;
+                        }
+                        else 
+                        {
+                            item.Quantidade -= quantidade;
+
+                            foreach (var estoqueItem in PersistênciaEstoque.listaEstoque)
+                            {
+                                if (estoqueItem.Produtos.Descricao == produtoSelecionado.Descricao)
+                                {
+                                    estoqueItem.quantidade -= quantidade;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+
+                    }
+                }
 
                 carrinho.Add(produtoCarrinho);
 
@@ -95,7 +120,7 @@ namespace Cantinaa
                 string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
 
                 listBoxCarrinho.Items.Add(itemTexto);
-
+                
                 totalPedido += valorItem;
                 label5.Text = $"Total: R${totalPedido:F2}";
                 label6.Text = "+ R$ " + valorItem.ToString("F2");
@@ -108,17 +133,40 @@ namespace Cantinaa
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int quantidade = (int)numericUpDown1.Value;
+
             label4.Visible = false;
+
             if (listBoxCarrinho.SelectedIndex == -1)
             {
                 label4.Text = "Selecione um produto!";
                 label4.Visible = true;
                 return;
             }
+
             else
             {
                 int escolhido = listBoxCarrinho.SelectedIndex;
                 Produtos produtoRemovido = carrinho[escolhido];
+
+                foreach (var item in PersistênciaProduto.listaProdutos)
+                {
+                    if (item.Descricao == produtoRemovido.Descricao)
+                    {
+                        item.Quantidade += produtoRemovido.Quantidade;
+
+                        foreach (var estoqueItem in PersistênciaEstoque.listaEstoque)
+                        {
+                            if (estoqueItem.Produtos.Descricao == item.Descricao)
+                            {
+                                estoqueItem.quantidade += produtoRemovido.Quantidade;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                
 
                 double valorItem = produtoRemovido.Valor * produtoRemovido.Quantidade;
                 totalPedido -= valorItem;
@@ -138,17 +186,10 @@ namespace Cantinaa
         {
             numericUpDown1.Value = 1;
 
-            listaProdutos.Add(new Produtos("Pão de Queijo", 3.50, 1, false));
-            listaProdutos.Add(new Produtos("Coxinha", 5.00, 1, false));
-            listaProdutos.Add(new Produtos("Pastel de Carne", 6.00, 1, true));
-            listaProdutos.Add(new Produtos("Pastel de Queijo", 5.50, 1, true));
-            listaProdutos.Add(new Produtos("Suco Natural (300ml)", 4.00, 1, false));
-            listaProdutos.Add(new Produtos("Refrigerante Lata", 4.50, 1, false));
-            listaProdutos.Add(new Produtos("Hambúrguer Simples", 8.00, 1, true));
-            listaProdutos.Add(new Produtos("Hambúrguer com Queijo", 9.00, 1, true));
-            listaProdutos.Add(new Produtos("X-Tudo", 12.00, 1, true));
-            listaProdutos.Add(new Produtos("Água Mineral (500ml)", 2.50, 1, false));
-            listBoxProduto.Items.AddRange(listaProdutos.ToArray());
+            foreach (var item in PersistênciaProduto.listaProdutos)
+            {
+                listBoxProduto.Items.Add(item);
+            }
 
             comboBox1.Items.Add("Dinheiro");
             comboBox1.Items.Add("Pix");
@@ -356,8 +397,14 @@ Data/Hora: {dataHora}
         {
             this.Hide();
             TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
-            telaChamadaStatus.ShowDialog(); 
+            telaChamadaStatus.ShowDialog();
             this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TelaEstoque telaEstoque = new TelaEstoque();
+            telaEstoque.ShowDialog();
         }
     }
 }

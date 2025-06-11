@@ -56,6 +56,7 @@
             label14 = new Label();
             panel1 = new Panel();
             label1 = new Label();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -367,6 +368,16 @@
             label1.Text = "Chamada";
             label1.Click += label1_Click;
             // 
+            // button4
+            // 
+            button4.Location = new Point(97, 422);
+            button4.Name = "button4";
+            button4.Size = new Size(97, 27);
+            button4.TabIndex = 36;
+            button4.Text = "estoque";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // TelaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -374,6 +385,7 @@
             BackColor = Color.Lavender;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(button4);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(checkBox1);
@@ -439,5 +451,6 @@
         private Label label14;
         private Panel panel1;
         private Label label1;
+        private Button button4;
     }
 }

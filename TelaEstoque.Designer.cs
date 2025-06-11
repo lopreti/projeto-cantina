@@ -55,9 +55,9 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(425, 101);
             label2.Name = "label2";
-            label2.Size = new Size(68, 30);
+            label2.Size = new Size(0, 30);
             label2.TabIndex = 2;
-            label2.Text = "label2";
+            label2.Click += label2_Click;
             // 
             // pictureBox1
             // 

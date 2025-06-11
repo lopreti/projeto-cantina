@@ -21,63 +21,46 @@ namespace Cantinaa
         private void AtualizarLista()
         {
             listBox1.Items.Clear();
-            listBox1.Items.AddRange(PersistenciaEstoque.listaEstoque.ToArray());
+            foreach (var produto in PersistênciaEstoque.listaEstoque)
+            {
+                listBox1.Items.Add(produto);
+            }
         }
 
         private void TelaEstoque_Load(object sender, EventArgs e)
         {
+            if (PersistênciaEstoque.listaEstoque.Count == 0)
+            {
+                PersistênciaEstoque.IniciarEstoque();
+            }
             AtualizarLista();
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                ProdutosEstoque produtoSelecionado = (ProdutosEstoque)listBox1.SelectedItem;
+                Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
                 label2.Text = produtoSelecionado.ToString();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
-                ProdutosEstoque produtoSelecionado = (ProdutosEstoque)listBox1.SelectedItem;
+                Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
 
-                if (produtoSelecionado.Quantidade > 1)
+                if (produtoSelecionado.quantidade > 1)
                 {
-                    produtoSelecionado.Quantidade -= 1;
+                    produtoSelecionado.quantidade -= 1;
                 }
                 else
                 {
-
-                    DialogResult resultado = MessageBox.Show(
-                        "Essa ação vai excluir o produto da lista, zerando sua quantidade. Deseja isso?",
-                        "Confirmar",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-
-                    if (resultado == DialogResult.Yes)
-                    {
-
-                        PersistenciaEstoque.listaEstoque.Remove(produtoSelecionado);
-                        produtoSelecionado.IsAtivo = false;
-                        label2.Text = string.Empty;
-                        AtualizarLista();
-                        return;
-                    }
+                    produtoSelecionado.quantidade = 0;
                 }
+
                 label2.Text = produtoSelecionado.ToString();
                 int Selecionado = listBox1.SelectedIndex;
                 AtualizarLista();
@@ -89,14 +72,19 @@ namespace Cantinaa
         {
             if (listBox1.SelectedIndex != -1)
             {
-                ProdutosEstoque produtoSelecionado = (ProdutosEstoque)listBox1.SelectedItem;
-                produtoSelecionado.Quantidade += 1;
+                Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
+                produtoSelecionado.quantidade += 1;
                 label2.Text = produtoSelecionado.ToString();
 
                 int Selecionado = listBox1.SelectedIndex;
                 AtualizarLista();
                 listBox1.SelectedIndex = Selecionado;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
