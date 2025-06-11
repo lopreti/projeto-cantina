@@ -30,6 +30,35 @@ namespace Cantinaa
             textBoxNome.Clear();
             checkBox1.Checked = false;
         }
+        private void AtualizarLista()
+        {
+            listBoxProduto.Items.Clear();
+            foreach (Produtos produto in PersistênciaProduto.listaProdutos)
+            {
+                Estoque estoqueItem = EncontrarEstoque(produto.Descricao);
+
+                int quantidadeEstoque = 0;
+                if (estoqueItem != null)
+                {
+                    quantidadeEstoque = estoqueItem.quantidade;
+                }
+
+                string itemTexto = $"{produto.Descricao} - R$ {produto.Valor:F2} - Estoque: {quantidadeEstoque}";
+                listBoxProduto.Items.Add(itemTexto);
+            }
+        }
+        private Estoque EncontrarEstoque(string descricao)
+        {
+            foreach (Estoque item in PersistênciaEstoque.listaEstoque)
+            {
+                if (item.Produtos.Descricao == descricao)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
         private bool ValidarPagamento()
         {
             if (comboBox1.SelectedIndex == 0)
@@ -81,60 +110,39 @@ namespace Cantinaa
                 return;
             }
 
-            else
+            Produtos produtoSelecionado = PersistênciaProduto.listaProdutos[listBoxProduto.SelectedIndex];
+
+            Estoque estoqueItem = EncontrarEstoque(produtoSelecionado.Descricao);
+            
+            if (estoqueItem == null || estoqueItem.quantidade < quantidade)
             {
-                Produtos produtoSelecionado = PersistênciaProduto.listaProdutos[listBoxProduto.SelectedIndex];
-                Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa);
-                Estoque estoque = new Estoque();
-
-                foreach (var item in PersistênciaProduto.listaProdutos) 
-                {
-                    if (item.Descricao == produtoSelecionado.Descricao)
-                    {
-                        if (item.Quantidade < quantidade)
-                        {
-                            MessageBox.Show("Quantidade insuficiente no estoque!");
-                            return;
-                        }
-                        else 
-                        {
-                            item.Quantidade -= quantidade;
-
-                            foreach (var estoqueItem in PersistênciaEstoque.listaEstoque)
-                            {
-                                if (estoqueItem.Produtos.Descricao == produtoSelecionado.Descricao)
-                                {
-                                    estoqueItem.quantidade -= quantidade;
-                                    break;
-                                }
-                            }
-                            break;
-                        }
-
-                    }
-                }
-
-                carrinho.Add(produtoCarrinho);
-
-                double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;
-                string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
-
-                listBoxCarrinho.Items.Add(itemTexto);
-                
-                totalPedido += valorItem;
-                label5.Text = $"Total: R${totalPedido:F2}";
-                label6.Text = "+ R$ " + valorItem.ToString("F2");
-                label6.ForeColor = Color.Yellow;
-
-                numericUpDown1.Value = 1;
-                listBoxProduto.SelectedIndex = -1;
+                MessageBox.Show("Produto fora de estoque ou quantidade insuficiente!");
+                return;
             }
+
+            estoqueItem.RemoverQuantidade(quantidade);
+
+            Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa);
+            carrinho.Add(produtoCarrinho);
+
+            double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;
+            string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
+
+            listBoxCarrinho.Items.Add(itemTexto);
+
+            totalPedido += valorItem;
+            label5.Text = $"Total: R${totalPedido:F2}";
+            label6.Text = "+ R$ " + valorItem.ToString("F2");
+            label6.ForeColor = Color.Yellow;
+
+            numericUpDown1.Value = 1;
+            listBoxProduto.SelectedIndex = -1;
+            AtualizarLista();
         }
+        
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            int quantidade = (int)numericUpDown1.Value;
-
+        { 
             label4.Visible = false;
 
             if (listBoxCarrinho.SelectedIndex == -1)
@@ -149,25 +157,13 @@ namespace Cantinaa
                 int escolhido = listBoxCarrinho.SelectedIndex;
                 Produtos produtoRemovido = carrinho[escolhido];
 
-                foreach (var item in PersistênciaProduto.listaProdutos)
-                {
-                    if (item.Descricao == produtoRemovido.Descricao)
-                    {
-                        item.Quantidade += produtoRemovido.Quantidade;
+                Estoque estoqueItem = EncontrarEstoque(produtoRemovido.Descricao);
 
-                        foreach (var estoqueItem in PersistênciaEstoque.listaEstoque)
-                        {
-                            if (estoqueItem.Produtos.Descricao == item.Descricao)
-                            {
-                                estoqueItem.quantidade += produtoRemovido.Quantidade;
-                                break;
-                            }
-                        }
-                        break;
-                    }
+                if (estoqueItem != null)
+                {
+                    estoqueItem.AdicionarQuantidade(produtoRemovido.Quantidade);
                 }
                 
-
                 double valorItem = produtoRemovido.Valor * produtoRemovido.Quantidade;
                 totalPedido -= valorItem;
                 label6.Text = "- R$ " + valorItem.ToString("F2");
@@ -178,17 +174,19 @@ namespace Cantinaa
                 listBoxCarrinho.Items.RemoveAt(escolhido);
 
                 label5.Text = $"Total: R${totalPedido:F2}";
+                AtualizarLista();
             }
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
+
             numericUpDown1.Value = 1;
 
-            foreach (var item in PersistênciaProduto.listaProdutos)
+            if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
-                listBoxProduto.Items.Add(item);
+                PersistênciaEstoque.IniciarEstoque();
+                AtualizarLista();
             }
 
             comboBox1.Items.Add("Dinheiro");
@@ -405,6 +403,7 @@ Data/Hora: {dataHora}
         {
             TelaEstoque telaEstoque = new TelaEstoque();
             telaEstoque.ShowDialog();
+            AtualizarLista();
         }
     }
 }

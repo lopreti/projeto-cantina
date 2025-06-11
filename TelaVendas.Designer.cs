@@ -69,9 +69,9 @@
             listBoxProduto.ForeColor = SystemColors.WindowText;
             listBoxProduto.FormattingEnabled = true;
             listBoxProduto.ItemHeight = 15;
-            listBoxProduto.Location = new Point(65, 80);
+            listBoxProduto.Location = new Point(57, 80);
             listBoxProduto.Name = "listBoxProduto";
-            listBoxProduto.Size = new Size(253, 184);
+            listBoxProduto.Size = new Size(267, 184);
             listBoxProduto.TabIndex = 0;
             listBoxProduto.SelectedIndexChanged += listBoxProduto_SelectedIndexChanged;
             // 
@@ -79,9 +79,9 @@
             // 
             listBoxCarrinho.FormattingEnabled = true;
             listBoxCarrinho.ItemHeight = 15;
-            listBoxCarrinho.Location = new Point(484, 80);
+            listBoxCarrinho.Location = new Point(475, 79);
             listBoxCarrinho.Name = "listBoxCarrinho";
-            listBoxCarrinho.Size = new Size(254, 184);
+            listBoxCarrinho.Size = new Size(267, 184);
             listBoxCarrinho.TabIndex = 1;
             listBoxCarrinho.SelectedIndexChanged += listBoxCarrinho_SelectedIndexChanged;
             // 
@@ -370,7 +370,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(97, 422);
+            button4.Location = new Point(50, 424);
             button4.Name = "button4";
             button4.Size = new Size(97, 27);
             button4.TabIndex = 36;

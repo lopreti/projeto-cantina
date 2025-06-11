@@ -33,8 +33,10 @@
             label2 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -62,7 +64,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(425, 213);
+            pictureBox1.Location = new Point(425, 284);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(122, 50);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -73,7 +75,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(647, 213);
+            pictureBox2.Location = new Point(647, 284);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(122, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -81,12 +83,20 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(425, 232);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(344, 23);
+            numericUpDown1.TabIndex = 7;
+            // 
             // TelaEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(numericUpDown1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
@@ -97,6 +107,7 @@
             Load += TelaEstoque_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -107,5 +118,6 @@
         private Label label2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private NumericUpDown numericUpDown1;
     }
 }

@@ -50,21 +50,22 @@ namespace Cantinaa
         {
             if (listBox1.SelectedIndex != -1)
             {
+                int quantidadeEscolhida = (int)numericUpDown1.Value;
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
 
-                if (produtoSelecionado.quantidade > 1)
+                if (quantidadeEscolhida > produtoSelecionado.quantidade)
                 {
-                    produtoSelecionado.quantidade -= 1;
+                    MessageBox.Show("Você não pode remover mais do que tem em estoque!");
+                    return;
                 }
-                else
-                {
-                    produtoSelecionado.quantidade = 0;
-                }
+                
+                produtoSelecionado.RemoverQuantidade(quantidadeEscolhida);
 
                 label2.Text = produtoSelecionado.ToString();
                 int Selecionado = listBox1.SelectedIndex;
                 AtualizarLista();
                 listBox1.SelectedIndex = Selecionado;
+                numericUpDown1.Value = 1;
             }
         }
 
@@ -72,13 +73,16 @@ namespace Cantinaa
         {
             if (listBox1.SelectedIndex != -1)
             {
+                int quantidadeEscolhida = (int)numericUpDown1.Value;
+
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
-                produtoSelecionado.quantidade += 1;
+                produtoSelecionado.AdicionarQuantidade(quantidadeEscolhida);
                 label2.Text = produtoSelecionado.ToString();
 
                 int Selecionado = listBox1.SelectedIndex;
                 AtualizarLista();
                 listBox1.SelectedIndex = Selecionado;
+                numericUpDown1.Value = 1;
             }
         }
 
