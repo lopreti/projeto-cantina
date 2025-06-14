@@ -18,7 +18,7 @@ namespace Cantinaa
             InitializeComponent();
         }
 
-        private void AtualizarLista()
+        public void AtualizarLista()
         {
             listBox1.Items.Clear();
             foreach (var produto in PersistênciaEstoque.listaEstoque)

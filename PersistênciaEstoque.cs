@@ -18,7 +18,7 @@ namespace Cantinaa
                 Estoque estoque = new Estoque
                 {
                     Produtos = item,
-                    quantidade = 0
+                    quantidade = 10
                 };
 
                 listaEstoque.Add(estoque);
