@@ -34,6 +34,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             numericUpDown1 = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -90,12 +91,23 @@
             numericUpDown1.Size = new Size(344, 23);
             numericUpDown1.TabIndex = 7;
             // 
+            // button1
+            // 
+            button1.Location = new Point(614, 407);
+            button1.Name = "button1";
+            button1.Size = new Size(119, 36);
+            button1.TabIndex = 8;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // TelaEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(button1);
             Controls.Add(numericUpDown1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -119,5 +131,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private NumericUpDown numericUpDown1;
+        private Button button1;
     }
 }

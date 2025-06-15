@@ -55,6 +55,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(279, 23);
             textBox3.TabIndex = 1;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // checkBox1
             // 
@@ -63,9 +64,9 @@
             checkBox1.ForeColor = SystemColors.ButtonHighlight;
             checkBox1.Location = new Point(500, 301);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(82, 19);
+            checkBox1.Size = new Size(46, 19);
             checkBox1.TabIndex = 2;
-            checkBox1.Text = "checkBox1";
+            checkBox1.Text = "Sim";
             checkBox1.UseVisualStyleBackColor = false;
             // 
             // checkBox2
@@ -75,9 +76,9 @@
             checkBox2.ForeColor = SystemColors.Control;
             checkBox2.Location = new Point(648, 301);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(82, 19);
+            checkBox2.Size = new Size(48, 19);
             checkBox2.TabIndex = 3;
-            checkBox2.Text = "checkBox2";
+            checkBox2.Text = "Não";
             checkBox2.UseVisualStyleBackColor = false;
             // 
             // listBox1
@@ -86,7 +87,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(56, 110);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(316, 319);
+            listBox1.Size = new Size(316, 274);
             listBox1.TabIndex = 4;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -121,6 +122,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // TelaGestão
             // 

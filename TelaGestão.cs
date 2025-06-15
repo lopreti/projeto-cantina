@@ -43,6 +43,7 @@ namespace Cantinaa
                 PersistênciaEstoque.IniciarEstoque();
             }
             AtualizarLista();
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,6 +74,7 @@ namespace Cantinaa
             {
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
                 PersistênciaEstoque.listaEstoque.Remove(produtoSelecionado);
+                PersistênciaProduto.listaProdutos.Remove(produtoSelecionado.Produtos);
                 AtualizarLista();
                 LimparCampos();
             }
@@ -84,7 +86,75 @@ namespace Cantinaa
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-           
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || checkBox1.Checked == false && checkBox2.Checked == false )
+            {
+                MessageBox.Show("Preencha todos os campos!");
+                return;
+            }
+
+            foreach (var produto in PersistênciaProduto.listaProdutos)
+            {
+                if (produto.Descricao == textBox1.Text)
+                {
+                    MessageBox.Show("Produto já cadastrado!");
+                    LimparCampos();
+                    return;
+                }
+            }
+
+            Produtos Produto = new Produtos();
+            Produto.Descricao = textBox1.Text;
+
+
+            if (checkBox1.Checked)
+            {
+                Produto.IsChapa = true;
+            }
+
+            else
+            {
+                Produto.IsChapa = false;
+            }
+
+            if (double.TryParse(textBox3.Text.Replace("R$ ", ""), out double valor))
+            {
+                Produto.Valor = valor;
+            }
+            else
+            {
+                MessageBox.Show("Valor inválido!");
+                return;
+            }
+
+            Estoque estoqueNovo = new Estoque
+            {
+                Produtos = Produto,
+                quantidade = 0
+            };
+
+            PersistênciaEstoque.listaEstoque.Add(estoqueNovo);
+            PersistênciaProduto.listaProdutos.Add(Produto);
+
+            AtualizarLista();
+            LimparCampos();
+
+        }
+    
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+               //editar
+            }
+            else
+            {
+                MessageBox.Show("Selecione um produto para editar!");
+            }
+
         }
     }
 }

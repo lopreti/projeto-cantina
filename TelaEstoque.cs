@@ -58,7 +58,7 @@ namespace Cantinaa
                     MessageBox.Show("Você não pode remover mais do que tem em estoque!");
                     return;
                 }
-                
+
                 produtoSelecionado.RemoverQuantidade(quantidadeEscolhida);
 
                 label2.Text = produtoSelecionado.ToString();
@@ -89,6 +89,13 @@ namespace Cantinaa
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaGestão telaGestão = new TelaGestão();
+            telaGestão.ShowDialog();
+            this.Close();
         }
     }
 }

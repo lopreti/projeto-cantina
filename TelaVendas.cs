@@ -180,15 +180,14 @@ namespace Cantinaa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             numericUpDown1.Value = 1;
 
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
-                AtualizarLista();
             }
 
+            AtualizarLista();
             comboBox1.Items.Add("Dinheiro");
             comboBox1.Items.Add("Pix");
             comboBox1.Items.Add("Cartão de Crédito");
