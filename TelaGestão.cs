@@ -36,6 +36,7 @@ namespace Cantinaa
             checkBox2.Checked = false;
         }
 
+
         private void TelaGestão_Load(object sender, EventArgs e)
         {
             if (PersistênciaEstoque.listaEstoque.Count == 0)
@@ -86,7 +87,7 @@ namespace Cantinaa
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || checkBox1.Checked == false && checkBox2.Checked == false )
+            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || checkBox1.Checked == false && checkBox2.Checked == false)
             {
                 MessageBox.Show("Preencha todos os campos!");
                 return;
@@ -136,10 +137,11 @@ namespace Cantinaa
             PersistênciaProduto.listaProdutos.Add(Produto);
 
             AtualizarLista();
+            MessageBox.Show("Produto criado com sucesso!");
             LimparCampos();
 
         }
-    
+
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
         }
@@ -148,13 +150,87 @@ namespace Cantinaa
         {
             if (listBox1.SelectedIndex != -1)
             {
-               //editar
+                if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text) || checkBox1.Checked == false && checkBox2.Checked == false)
+                {
+                    MessageBox.Show("Preencha todos os campos!");
+                    return;
+                }
+
+                int indexSelecionado = listBox1.SelectedIndex;
+
+                Estoque itemAnterior = PersistênciaEstoque.listaEstoque[indexSelecionado];
+
+                Produtos Produto = new Produtos();
+                Produto.Descricao = textBox1.Text;
+
+                if (checkBox1.Checked)
+                {
+                    Produto.IsChapa = true;
+                }
+
+                else
+                {
+                    Produto.IsChapa = false;
+                }
+
+                if (double.TryParse(textBox3.Text.Replace("R$ ", ""), out double valor))
+                {
+                    Produto.Valor = valor;
+                }
+
+                else
+                {
+                    MessageBox.Show("Valor inválido!");
+                    return;
+                }
+
+                Estoque estoqueNovo = new Estoque
+                {
+                    Produtos = Produto,
+                    quantidade = itemAnterior.quantidade
+
+                };
+
+                foreach (var produto in PersistênciaProduto.listaProdutos)
+                {
+                    if (produto.Descricao == textBox1.Text && produto != itemAnterior.Produtos)
+                    {
+                        MessageBox.Show("Produto com esse nome já cadastrado!");
+                        return;
+                    }
+                }
+                
+                PersistênciaEstoque.listaEstoque[indexSelecionado] = estoqueNovo;
+
+                PersistênciaProduto.listaProdutos.Remove(itemAnterior.Produtos);
+                PersistênciaProduto.listaProdutos.Add(Produto);
+
+                AtualizarLista();
+                MessageBox.Show("Produto editado com sucesso!");
+                listBox1.SelectedIndex = indexSelecionado;
             }
             else
             {
                 MessageBox.Show("Selecione um produto para editar!");
             }
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                checkBox2.Checked = false;
+            }
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                checkBox1.Checked = false;
+            }
         }
     }
 }

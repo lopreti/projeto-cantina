@@ -68,6 +68,7 @@
             checkBox1.TabIndex = 2;
             checkBox1.Text = "Sim";
             checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // checkBox2
             // 
@@ -80,6 +81,7 @@
             checkBox2.TabIndex = 3;
             checkBox2.Text = "Não";
             checkBox2.UseVisualStyleBackColor = false;
+            checkBox2.CheckedChanged += checkBox2_CheckedChanged;
             // 
             // listBox1
             // 
