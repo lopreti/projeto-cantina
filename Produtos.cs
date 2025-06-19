@@ -7,6 +7,7 @@ internal class Produtos
     private double valor;
     private int quantidade;
     private bool isChapa;
+    private bool isAtivo;
 
     public Produtos()
     {
@@ -14,14 +15,16 @@ internal class Produtos
         valor = 0;
         quantidade = 0;
         isChapa = false;
+        isAtivo = true;
     }
 
-    public Produtos(string descricao, double valor, int quantidade, bool isChapa)
+    public Produtos(string descricao, double valor, int quantidade, bool isChapa, bool isAtivo)
     {
         this.descricao = descricao;
         this.valor = valor;
         this.quantidade = quantidade;
         this.isChapa = isChapa;
+        this.isAtivo = isAtivo;
     }
 
 
@@ -47,10 +50,14 @@ internal class Produtos
         get { return isChapa;}
         set { isChapa = value;}
     }
+    public bool ISAtivo
+    {
+        get { return isAtivo; }
+        set { isAtivo = value; }
+    }
 
     public override string ToString()
     {
         return $"{descricao} - R$ {valor:F2}";
     }
-
 }

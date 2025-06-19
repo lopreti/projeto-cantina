@@ -74,16 +74,29 @@ namespace Cantinaa
             if (listBox1.SelectedIndex != -1)
             {
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
-                PersistênciaEstoque.listaEstoque.Remove(produtoSelecionado);
-                PersistênciaProduto.listaProdutos.Remove(produtoSelecionado.Produtos);
-                AtualizarLista();
-                LimparCampos();
+
+                if (!produtoSelecionado.Produtos.ISAtivo)
+                {
+                    MessageBox.Show("Produto já está desativado!");
+                    return;
+                }
+
+                else
+                {
+
+                    produtoSelecionado.Produtos.ISAtivo = false;
+                    MessageBox.Show("Produto desativado com sucesso!");
+                    AtualizarLista();
+                    LimparCampos();
+                }
+
             }
             else
             {
                 MessageBox.Show("Selecione um produto para deletar!");
             }
         }
+
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -199,7 +212,7 @@ namespace Cantinaa
                         return;
                     }
                 }
-                
+
                 PersistênciaEstoque.listaEstoque[indexSelecionado] = estoqueNovo;
 
                 PersistênciaProduto.listaProdutos.Remove(itemAnterior.Produtos);
@@ -230,6 +243,39 @@ namespace Cantinaa
             if (checkBox2.Checked)
             {
                 checkBox1.Checked = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
+
+                if (produtoSelecionado.Produtos.ISAtivo)
+                {
+                    MessageBox.Show("Produto já está ativo!");
+                    return;
+                }
+
+                else
+                {
+
+                    produtoSelecionado.Produtos.ISAtivo = true;
+                    MessageBox.Show("Produto ativado com sucesso!");
+                    AtualizarLista();
+                    LimparCampos();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecione um produto para ativar!");
             }
         }
     }

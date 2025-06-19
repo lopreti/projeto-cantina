@@ -26,7 +26,12 @@ namespace Cantinaa
 
         public override string ToString()
         {
-            return $"{Produtos.Descricao} - Quant: {quantidade}";
+            string statusAtivo = "";
+            if (!Produtos.ISAtivo) 
+            {
+                statusAtivo = " - desativado";
+            }
+            return $"{Produtos.Descricao} - Quant: {quantidade} {statusAtivo}";
         }
 
 

@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Cantinaa
 {
@@ -33,20 +34,25 @@ namespace Cantinaa
         private void AtualizarLista()
         {
             listBoxProduto.Items.Clear();
-            foreach (Produtos produto in PersistênciaProduto.listaProdutos)
+
+            foreach (var produto in PersistênciaProduto.listaProdutos)
             {
-                Estoque estoqueItem = EncontrarEstoque(produto.Descricao);
-
-                int quantidadeEstoque = 0;
-                if (estoqueItem != null)
+                if (produto.ISAtivo)
                 {
-                    quantidadeEstoque = estoqueItem.quantidade;
-                }
+                    Estoque estoqueItem = EncontrarEstoque(produto.Descricao);
 
-                string itemTexto = $"{produto.Descricao} - R$ {produto.Valor:F2} - Estoque: {quantidadeEstoque}";
-                listBoxProduto.Items.Add(itemTexto);
+                    int quantidadeEstoque = 0;
+                    if (estoqueItem != null)
+                    {
+                        quantidadeEstoque = estoqueItem.quantidade;
+                    }
+
+                    string itemTexto = $"{produto.Descricao} - R$ {produto.Valor:F2} - Estoque: {quantidadeEstoque}";
+                    listBoxProduto.Items.Add(itemTexto);
+                }
             }
         }
+
         private Estoque EncontrarEstoque(string descricao)
         {
             foreach (Estoque item in PersistênciaEstoque.listaEstoque)
@@ -122,7 +128,7 @@ namespace Cantinaa
 
             estoqueItem.RemoverQuantidade(quantidade);
 
-            Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa);
+            Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa, produtoSelecionado.ISAtivo);
             carrinho.Add(produtoCarrinho);
 
             double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;

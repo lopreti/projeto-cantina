@@ -42,7 +42,7 @@ namespace Cantinaa
             if (listBox1.SelectedIndex != -1)
             {
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
-                label2.Text = produtoSelecionado.ToString();
+                label2.Text = $"{produtoSelecionado.Produtos.Descricao} - Quant: {produtoSelecionado.quantidade}";
             }
         }
 
@@ -67,7 +67,12 @@ namespace Cantinaa
                 listBox1.SelectedIndex = Selecionado;
                 numericUpDown1.Value = 1;
             }
+            else
+            {
+                MessageBox.Show("Selecione um produto!");
+            }
         }
+
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -83,6 +88,10 @@ namespace Cantinaa
                 AtualizarLista();
                 listBox1.SelectedIndex = Selecionado;
                 numericUpDown1.Value = 1;
+            }
+            else
+            {
+                MessageBox.Show("Selecione um produto!");
             }
         }
 
