@@ -24,6 +24,21 @@ namespace Cantinaa
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.UseSystemPasswordChar = !checkBox1.Checked;
+        }
+
+        private void TelaLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             string usuario = textBox1.Text;
             string senha = textBox2.Text;
 
@@ -34,7 +49,8 @@ namespace Cantinaa
                     if (user.Tipo == "Administrador")
                     {
                         MessageBox.Show("Bem-vindo, Administrador!");
-
+                        MenuAdm menuAdm = new MenuAdm();
+                        menuAdm.ShowDialog();
                     }
 
                     else if (user.Tipo == "Balconista")
@@ -47,7 +63,7 @@ namespace Cantinaa
                     else if (user.Tipo == "Cozinha")
                     {
                         MessageBox.Show("Bem-vindo, Cozinha!");
-                        
+
                     }
                     this.Hide();
                     return;
@@ -56,11 +72,6 @@ namespace Cantinaa
 
             MessageBox.Show("Usuário ou senha incorretos.");
 
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-           textBox2.UseSystemPasswordChar = !checkBox1.Checked;
         }
     }
 }
