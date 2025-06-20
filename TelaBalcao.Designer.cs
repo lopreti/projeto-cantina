@@ -44,6 +44,7 @@
             // 
             // listBox1
             // 
+            listBox1.Cursor = Cursors.Hand;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(109, 140);

@@ -29,6 +29,7 @@ namespace Cantinaa
 
         private void TelaEstoque_Load(object sender, EventArgs e)
         {
+          
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
@@ -101,6 +102,13 @@ namespace Cantinaa
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            TelaGestão telaGestão = new TelaGestão();
+            telaGestão.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             TelaGestão telaGestão = new TelaGestão();
             telaGestão.ShowDialog();

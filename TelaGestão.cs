@@ -39,6 +39,7 @@ namespace Cantinaa
 
         private void TelaGestão_Load(object sender, EventArgs e)
         {
+
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
@@ -111,7 +112,6 @@ namespace Cantinaa
                 if (produto.Descricao == textBox1.Text)
                 {
                     MessageBox.Show("Produto já cadastrado!");
-                    LimparCampos();
                     return;
                 }
             }
@@ -214,10 +214,7 @@ namespace Cantinaa
                 }
 
                 PersistênciaEstoque.listaEstoque[indexSelecionado] = estoqueNovo;
-
-                PersistênciaProduto.listaProdutos.Remove(itemAnterior.Produtos);
-                PersistênciaProduto.listaProdutos.Add(Produto);
-
+                PersistênciaProduto.listaProdutos[indexSelecionado] = Produto;
                 AtualizarLista();
                 MessageBox.Show("Produto editado com sucesso!");
                 listBox1.SelectedIndex = indexSelecionado;

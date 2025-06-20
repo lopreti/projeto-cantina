@@ -47,8 +47,7 @@ namespace Cantinaa
                         quantidadeEstoque = estoqueItem.quantidade;
                     }
 
-                    string itemTexto = $"{produto.Descricao} - R$ {produto.Valor:F2} - Estoque: {quantidadeEstoque}";
-                    listBoxProduto.Items.Add(itemTexto);
+                    listBoxProduto.Items.Add(produto);
                 }
             }
         }
@@ -94,96 +93,6 @@ namespace Cantinaa
 
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label7.Visible = false;
-            label3.Visible = false;
-
-            int quantidade = (int)numericUpDown1.Value;
-
-            if (listBoxProduto.SelectedIndex == -1)
-            {
-                label3.Text = "Selecione um produto!";
-                label3.Visible = true;
-                return;
-            }
-
-            if (quantidade <= 0)
-            {
-                label7.Text = "Quantidade deve ser maior que zero!";
-                label7.Visible = true;
-                return;
-            }
-
-            Produtos produtoSelecionado = PersistênciaProduto.listaProdutos[listBoxProduto.SelectedIndex];
-
-            Estoque estoqueItem = EncontrarEstoque(produtoSelecionado.Descricao);
-            
-            if (estoqueItem == null || estoqueItem.quantidade < quantidade)
-            {
-                MessageBox.Show("Produto fora de estoque ou quantidade insuficiente!");
-                return;
-            }
-
-            estoqueItem.RemoverQuantidade(quantidade);
-
-            Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa, produtoSelecionado.ISAtivo);
-            carrinho.Add(produtoCarrinho);
-
-            double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;
-            string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
-
-            listBoxCarrinho.Items.Add(itemTexto);
-
-            totalPedido += valorItem;
-            label5.Text = $"Total: R${totalPedido:F2}";
-            label6.Text = "+ R$ " + valorItem.ToString("F2");
-            label6.ForeColor = Color.Yellow;
-
-            numericUpDown1.Value = 1;
-            listBoxProduto.SelectedIndex = -1;
-            AtualizarLista();
-        }
-        
-
-        private void button2_Click(object sender, EventArgs e)
-        { 
-            label4.Visible = false;
-
-            if (listBoxCarrinho.SelectedIndex == -1)
-            {
-                label4.Text = "Selecione um produto!";
-                label4.Visible = true;
-                return;
-            }
-
-            else
-            {
-                int escolhido = listBoxCarrinho.SelectedIndex;
-                Produtos produtoRemovido = carrinho[escolhido];
-
-                Estoque estoqueItem = EncontrarEstoque(produtoRemovido.Descricao);
-
-                if (estoqueItem != null)
-                {
-                    estoqueItem.AdicionarQuantidade(produtoRemovido.Quantidade);
-                }
-                
-                double valorItem = produtoRemovido.Valor * produtoRemovido.Quantidade;
-                totalPedido -= valorItem;
-                label6.Text = "- R$ " + valorItem.ToString("F2");
-                label6.ForeColor = Color.LightGray;
-
-                numericUpDown1.Value = 1;
-                carrinho.RemoveAt(escolhido);
-                listBoxCarrinho.Items.RemoveAt(escolhido);
-
-                label5.Text = $"Total: R${totalPedido:F2}";
-                AtualizarLista();
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             numericUpDown1.Value = 1;
@@ -202,93 +111,6 @@ namespace Cantinaa
             comboBox1.Items.Add("Vale Alimentação");
 
             panel1.Visible = false;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string dataHora = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-            if (comboBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Escolha a forma de pagamento!");
-                return;
-            }
-
-            if (textBoxNome.Text == string.Empty)
-            {
-                MessageBox.Show("Digite um nome!");
-                return;
-            }
-            if (listBoxCarrinho.Items.Count == 0)
-            {
-                MessageBox.Show("Carrinho Vazio");
-                return;
-            }
-
-            if (comboBox1.SelectedIndex == 0)
-            {
-
-                if (!ValidarPagamento())
-                {
-                    return;
-                }
-
-                MessageBox.Show(@$"EXTRATO
-------------------------------------
-Pedido finalizado, {textBoxNome.Text}!
-
-Total da compra: R$ {totalPedido:F2}
-
-Forma de Pagamento: Dinheiro
-Você pagou: R$ {textBoxValor.Text}
-Troco de: {textBoxTroco.Text}
-
-Data/Hora: {dataHora}
-------------------------------------");
-
-            }
-            else
-            {
-                MessageBox.Show(@$"EXTRATO
-------------------------------------
-Pedido finalizado, {textBoxNome.Text}!
-
-Total da compra: R$ {totalPedido:F2}
-Forma de Pagamento: {comboBox1.SelectedItem}
-
-Data/Hora: {dataHora}
-------------------------------------");
-            }
-
-            bool temChapa = false;
-
-            foreach (Produtos produtos in carrinho)
-            {
-                if (produtos.IsChapa)
-                {
-                    temChapa = true;
-                    break;
-                }
-            }
-            Pedidos PedidoFeito = new Pedidos(textBoxNome.Text, comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
-
-            if (temChapa)
-            {
-                PedidoFeito.statusPedido = Status.Preparando;
-                PersistenciaPedido.pedidosCozinha.Add(PedidoFeito);
-                MessageBox.Show("Seu pedido foi enviado para a cozinha! Espere enquanto preparamos.");
-            }
-
-            else
-            {
-                PedidoFeito.statusPedido = Status.Pronto;
-                PersistenciaPedido.pedidosBalcao.Add(PedidoFeito);
-            }
-
-            LimparTela();
-            TelaBalcao telaBalcao = new TelaBalcao();
-            telaBalcao.ShowDialog();
-            this.Close();
         }
 
         private void listBoxCarrinho_SelectedIndexChanged(object sender, EventArgs e)
@@ -409,6 +231,196 @@ Data/Hora: {dataHora}
             TelaEstoque telaEstoque = new TelaEstoque();
             telaEstoque.ShowDialog();
             AtualizarLista();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string dataHora = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Escolha a forma de pagamento!");
+                return;
+            }
+
+            if (textBoxNome.Text == string.Empty)
+            {
+                MessageBox.Show("Digite um nome!");
+                return;
+            }
+            if (listBoxCarrinho.Items.Count == 0)
+            {
+                MessageBox.Show("Carrinho Vazio");
+                return;
+            }
+
+            if (comboBox1.SelectedIndex == 0)
+            {
+
+                if (!ValidarPagamento())
+                {
+                    return;
+                }
+
+                MessageBox.Show(@$"EXTRATO
+------------------------------------
+Pedido finalizado, {textBoxNome.Text}!
+
+Total da compra: R$ {totalPedido:F2}
+
+Forma de Pagamento: Dinheiro
+Você pagou: R$ {textBoxValor.Text}
+Troco de: {textBoxTroco.Text}
+
+Data/Hora: {dataHora}
+------------------------------------");
+
+            }
+            else
+            {
+                MessageBox.Show(@$"EXTRATO
+------------------------------------
+Pedido finalizado, {textBoxNome.Text}!
+
+Total da compra: R$ {totalPedido:F2}
+Forma de Pagamento: {comboBox1.SelectedItem}
+
+Data/Hora: {dataHora}
+------------------------------------");
+            }
+
+            bool temChapa = false;
+
+            foreach (Produtos produtos in carrinho)
+            {
+                if (produtos.IsChapa)
+                {
+                    temChapa = true;
+                    break;
+                }
+            }
+            Pedidos PedidoFeito = new Pedidos(textBoxNome.Text, comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
+
+            if (temChapa)
+            {
+                PedidoFeito.statusPedido = Status.Preparando;
+                PersistenciaPedido.pedidosCozinha.Add(PedidoFeito);
+                MessageBox.Show("Seu pedido foi enviado para a cozinha! Espere enquanto preparamos.");
+            }
+
+            else
+            {
+                PedidoFeito.statusPedido = Status.Pronto;
+                PersistenciaPedido.pedidosBalcao.Add(PedidoFeito);
+            }
+            AtualizarLista();
+
+            LimparTela();
+            TelaBalcao telaBalcao = new TelaBalcao();
+            telaBalcao.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            label7.Visible = false;
+            label3.Visible = false;
+
+            int quantidade = (int)numericUpDown1.Value;
+
+            if (listBoxProduto.SelectedIndex == -1)
+            {
+                label3.Text = "Selecione um produto!";
+                label3.Visible = true;
+                return;
+            }
+
+            if (quantidade <= 0)
+            {
+                label7.Text = "Quantidade deve ser maior que zero!";
+                label7.Visible = true;
+                return;
+            }
+
+
+            Produtos produtoSelecionado = (Produtos)listBoxProduto.SelectedItem;
+
+            Estoque estoqueItem = EncontrarEstoque(produtoSelecionado.Descricao);
+
+            if (estoqueItem == null || estoqueItem.quantidade < quantidade)
+            {
+                MessageBox.Show("Quantidade indisponível. A quantidade atual no estoque é: " + estoqueItem.quantidade);
+                numericUpDown1.Value = estoqueItem.quantidade;
+                return;
+
+            }
+            estoqueItem.RemoverQuantidade(quantidade);
+
+            Produtos produtoCarrinho = new Produtos(produtoSelecionado.Descricao, produtoSelecionado.Valor, quantidade, produtoSelecionado.IsChapa, produtoSelecionado.ISAtivo);
+            carrinho.Add(produtoCarrinho);
+
+            double valorItem = produtoCarrinho.Valor * produtoCarrinho.Quantidade;
+            string itemTexto = $"{quantidade} x {produtoSelecionado.Descricao} - R$ {valorItem:F2}";
+
+            listBoxCarrinho.Items.Add(itemTexto);
+
+            if (estoqueItem.quantidade == 0)
+            {
+                estoqueItem.Produtos.ISAtivo = false;
+                MessageBox.Show($"Produto '{estoqueItem.Produtos.Descricao}' esgotado e desativado do estoque.");
+            }
+
+            totalPedido += valorItem;
+            label5.Text = $"Total: R${totalPedido:F2}";
+            label6.Text = "+ R$ " + valorItem.ToString("F2");
+            label6.ForeColor = Color.Yellow;
+
+            numericUpDown1.Value = 1;
+            listBoxProduto.SelectedIndex = -1;
+            AtualizarLista();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+
+            if (listBoxCarrinho.SelectedIndex == -1)
+            {
+                label4.Text = "Selecione um produto!";
+                label4.Visible = true;
+                return;
+            }
+
+            else
+            {
+                int escolhido = listBoxCarrinho.SelectedIndex;
+                Produtos produtoRemovido = carrinho[escolhido];
+
+                Estoque estoqueItem = EncontrarEstoque(produtoRemovido.Descricao);
+
+                if (estoqueItem != null)
+                {
+                    estoqueItem.AdicionarQuantidade(produtoRemovido.Quantidade);
+
+                    if (estoqueItem.quantidade > 0 && estoqueItem.Produtos.ISAtivo == false)
+                    {
+                        estoqueItem.Produtos.ISAtivo = true;
+                        MessageBox.Show($"Produto '{estoqueItem.Produtos.Descricao}' reativado no estoque.");
+                    }
+                }
+
+                double valorItem = produtoRemovido.Valor * produtoRemovido.Quantidade;
+                totalPedido -= valorItem;
+                label6.Text = "- R$ " + valorItem.ToString("F2");
+                label6.ForeColor = Color.LightGray;
+
+                numericUpDown1.Value = 1;
+                carrinho.RemoveAt(escolhido);
+                listBoxCarrinho.Items.RemoveAt(escolhido);
+
+                label5.Text = $"Total: R${totalPedido:F2}";
+                AtualizarLista();
+            }
         }
     }
 }

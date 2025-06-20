@@ -1,6 +1,6 @@
 ﻿namespace Cantinaa
 {
-    partial class Cozinha
+    partial class TelaCozinha
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cozinha));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCozinha));
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -41,24 +41,23 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(105, 119);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(589, 244);
+            listBox1.Size = new Size(589, 229);
             listBox1.TabIndex = 4;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(353, 369);
+            pictureBox1.Location = new Point(336, 380);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(93, 33);
+            pictureBox1.Size = new Size(130, 43);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // Cozinha
+            // TelaCozinha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -66,7 +65,7 @@
             ClientSize = new Size(784, 461);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
-            Name = "Cozinha";
+            Name = "TelaCozinha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cozinha";
             Load += Cozinha_Load;

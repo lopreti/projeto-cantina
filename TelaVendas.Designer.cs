@@ -31,11 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaVendas));
             listBoxProduto = new ListBox();
             listBoxCarrinho = new ListBox();
-            button1 = new Button();
-            button2 = new Button();
             label3 = new Label();
             label4 = new Label();
-            button3 = new Button();
             label5 = new Label();
             numericUpDown1 = new NumericUpDown();
             label7 = new Label();
@@ -57,9 +54,15 @@
             panel1 = new Panel();
             label1 = new Label();
             button4 = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // listBoxProduto
@@ -85,28 +88,6 @@
             listBoxCarrinho.TabIndex = 1;
             listBoxCarrinho.SelectedIndexChanged += listBoxCarrinho_SelectedIndexChanged;
             // 
-            // button1
-            // 
-            button1.Cursor = Cursors.Hand;
-            button1.Location = new Point(369, 125);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Adicionar ";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Cursor = Cursors.Hand;
-            button2.Location = new Point(369, 239);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Remover";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -130,21 +111,6 @@
             label4.TabIndex = 7;
             label4.Text = "Selecione Produto";
             label4.Visible = false;
-            // 
-            // button3
-            // 
-            button3.Anchor = AnchorStyles.None;
-            button3.BackColor = Color.Black;
-            button3.Cursor = Cursors.Hand;
-            button3.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Yellow;
-            button3.Location = new Point(247, 424);
-            button3.Name = "button3";
-            button3.Size = new Size(319, 34);
-            button3.TabIndex = 8;
-            button3.Text = "Fechar pedido";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
             // 
             // label5
             // 
@@ -378,6 +344,42 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(285, 416);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(224, 40);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 37;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(343, 103);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(110, 34);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 38;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(343, 229);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(110, 34);
+            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox4.TabIndex = 39;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
             // TelaVendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -385,6 +387,9 @@
             BackColor = Color.Lavender;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
             Controls.Add(button4);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
@@ -403,11 +408,8 @@
             Controls.Add(label7);
             Controls.Add(numericUpDown1);
             Controls.Add(label5);
-            Controls.Add(button3);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(listBoxCarrinho);
             Controls.Add(listBoxProduto);
             Name = "TelaVendas";
@@ -418,6 +420,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -426,11 +431,8 @@
 
         private ListBox listBoxProduto;
         private ListBox listBoxCarrinho;
-        private Button button1;
-        private Button button2;
         private Label label3;
         private Label label4;
-        private Button button3;
         private Label label5;
         private NumericUpDown numericUpDown1;
         private Label label7;
@@ -452,5 +454,8 @@
         private Panel panel1;
         private Label label1;
         private Button button4;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

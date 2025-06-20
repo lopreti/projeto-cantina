@@ -86,7 +86,7 @@ namespace Cantinaa
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Cozinha cozinha = new Cozinha(this);
+            TelaCozinha cozinha = new TelaCozinha(this);
             cozinha.ShowDialog();
             AtualizarBalcao();
         }

@@ -34,6 +34,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             numericUpDown1 = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -63,6 +64,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(425, 284);
             pictureBox1.Name = "pictureBox1";
@@ -74,6 +76,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(647, 284);
             pictureBox2.Name = "pictureBox2";
@@ -91,12 +94,23 @@
             numericUpDown1.TabIndex = 7;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // button1
+            // 
+            button1.Location = new Point(699, 417);
+            button1.Name = "button1";
+            button1.Size = new Size(70, 32);
+            button1.TabIndex = 8;
+            button1.Text = ">";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // TelaEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(button1);
             Controls.Add(numericUpDown1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -120,5 +134,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private NumericUpDown numericUpDown1;
+        private Button button1;
     }
 }

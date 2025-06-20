@@ -54,12 +54,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(597, 332);
+            pictureBox1.Location = new Point(567, 397);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(93, 33);
+            pictureBox1.Size = new Size(123, 44);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -67,12 +66,11 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(106, 332);
+            pictureBox2.Location = new Point(106, 397);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(102, 33);
+            pictureBox2.Size = new Size(119, 44);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
@@ -93,12 +91,11 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
             pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(351, 332);
+            pictureBox3.Location = new Point(337, 397);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(93, 33);
+            pictureBox3.Size = new Size(122, 44);
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox3.TabIndex = 4;
             pictureBox3.TabStop = false;

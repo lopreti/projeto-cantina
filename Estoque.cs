@@ -22,14 +22,18 @@ namespace Cantinaa
             {
                 this.quantidade -= quantidade;
             }
+            if ( quantidade <= 0 )
+            {
+                Produtos.ISAtivo = false;
+            }
         }
-
+       
         public override string ToString()
         {
             string statusAtivo = "";
             if (!Produtos.ISAtivo) 
             {
-                statusAtivo = " - desativado";
+                statusAtivo = " - Desativado";
             }
             return $"{Produtos.Descricao} - Quant: {quantidade} {statusAtivo}";
         }

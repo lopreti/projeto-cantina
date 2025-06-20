@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace Cantinaa
 {
-    public partial class Cozinha : Form
+    public partial class TelaCozinha : Form
     {
         private List<Pedidos> listaAuxiliar = new List<Pedidos>();
 
         private TelaBalcao telaBalcao;
 
-        public Cozinha(TelaBalcao balcao)
+        public TelaCozinha(TelaBalcao balcao)
         {
             InitializeComponent();
             this.telaBalcao = balcao;
