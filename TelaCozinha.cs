@@ -23,6 +23,7 @@ namespace Cantinaa
             this.telaBalcao = balcao;
         }
 
+
         private void Cozinha_Load(object sender, EventArgs e)
         {
             listaAuxiliar.Clear();
