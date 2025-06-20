@@ -22,11 +22,6 @@ namespace Cantinaa
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             textBox2.UseSystemPasswordChar = !checkBox1.Checked;
@@ -44,8 +39,10 @@ namespace Cantinaa
 
             foreach (Usuario user in PersistenciaUsuarios.listaUsusarios)
             {
+
                 if (user.Nome == usuario && user.Senha == senha)
                 {
+
                     if (user.Tipo == "Administrador")
                     {
                         MessageBox.Show("Bem-vindo, Administrador!");
@@ -60,9 +57,11 @@ namespace Cantinaa
                         telaBalcao.Show();
                     }
 
-                    else if (user.Tipo == "Cozinha")
+                    else if (user.Tipo == "Cozinheiro")
                     {
                         MessageBox.Show("Bem-vindo, Cozinha!");
+                        TelaCozinha telaCozinha = new TelaCozinha();
+                        telaCozinha.Show();
 
                     }
                     this.Hide();

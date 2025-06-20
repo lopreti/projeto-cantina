@@ -14,6 +14,7 @@ namespace Cantinaa
 {
     public partial class TelaGestão : Form
     {
+        private bool menuAberto = false;
         public TelaGestão()
         {
             InitializeComponent();
@@ -274,6 +275,30 @@ namespace Cantinaa
             {
                 MessageBox.Show("Selecione um produto para ativar!");
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (menuAberto)
+            {
+                panel2.Visible = false;
+                menuAberto = false;
+            }
+            else
+            {
+                panel2.Visible = true;
+                menuAberto = true;
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

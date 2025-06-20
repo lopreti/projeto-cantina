@@ -49,11 +49,8 @@
             label8 = new Label();
             checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
             label14 = new Label();
             panel1 = new Panel();
-            label1 = new Label();
-            button4 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -284,65 +281,27 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Black;
-            label2.Cursor = Cursors.Hand;
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(107, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(42, 15);
-            label2.TabIndex = 32;
-            label2.Text = "Balcão";
-            label2.Click += label2_Click;
-            // 
             // label14
             // 
             label14.AutoSize = true;
             label14.BackColor = Color.Black;
             label14.Cursor = Cursors.Hand;
             label14.ForeColor = SystemColors.ControlLightLight;
-            label14.Location = new Point(195, 9);
+            label14.Location = new Point(12, 10);
             label14.Name = "label14";
-            label14.Size = new Size(55, 15);
+            label14.Size = new Size(117, 15);
             label14.TabIndex = 33;
-            label14.Text = "Produtos";
+            label14.Text = "Menu Administrador";
             label14.Click += label14_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(label14);
-            panel1.Controls.Add(label2);
-            panel1.Location = new Point(468, 12);
+            panel1.Location = new Point(594, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(270, 34);
+            panel1.Size = new Size(143, 34);
             panel1.TabIndex = 35;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Black;
-            label1.Cursor = Cursors.Hand;
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(16, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(58, 15);
-            label1.TabIndex = 34;
-            label1.Text = "Chamada";
-            label1.Click += label1_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(30, 424);
-            button4.Name = "button4";
-            button4.Size = new Size(97, 27);
-            button4.TabIndex = 36;
-            button4.Text = "estoque";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // pictureBox2
             // 
@@ -390,7 +349,6 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
-            Controls.Add(button4);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(checkBox1);
@@ -449,11 +407,8 @@
         private Label label8;
         private CheckBox checkBox1;
         private PictureBox pictureBox1;
-        private Label label2;
         private Label label14;
         private Panel panel1;
-        private Label label1;
-        private Button button4;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;

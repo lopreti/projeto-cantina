@@ -17,7 +17,9 @@ namespace Cantinaa
 
         private TelaBalcao telaBalcao;
 
-        public TelaCozinha(TelaBalcao balcao)
+        private bool menuAberto = false;
+
+        public TelaCozinha(TelaBalcao balcao = null)
         {
             InitializeComponent();
             this.telaBalcao = balcao;
@@ -26,6 +28,7 @@ namespace Cantinaa
 
         private void Cozinha_Load(object sender, EventArgs e)
         {
+            
             listaAuxiliar.Clear();
             listBox1.Items.Clear();
 
@@ -60,8 +63,12 @@ namespace Cantinaa
                 listaAuxiliar.RemoveAt(indice);
                 listBox1.Items.RemoveAt(indice);
                 MessageBox.Show("Pedido entregue para o balcão");
-                telaBalcao.AtualizarBalcao();
-               
+
+                if (telaBalcao != null)
+                {
+                    telaBalcao.AtualizarBalcao();
+                }
+
                 this.Close();
             }
             else
@@ -73,6 +80,27 @@ namespace Cantinaa
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (menuAberto)
+            {
+                panel2.Visible = false;
+                menuAberto = false;
+            }
+            else
+            {
+                panel2.Visible = true;
+                menuAberto = true;
+            }
         }
     }
 }

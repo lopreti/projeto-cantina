@@ -204,33 +204,10 @@ namespace Cantinaa
                 menuAberto = true;
             }
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            this.Hide();
-            TelaBalcao telaBalcao = new TelaBalcao();
-            telaBalcao.ShowDialog();
-            this.Close();
-
-        }
 
         private void label14_Click(object sender, EventArgs e)
         {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
-            telaChamadaStatus.ShowDialog();
             this.Close();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            TelaEstoque telaEstoque = new TelaEstoque();
-            telaEstoque.ShowDialog();
-            AtualizarLista();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

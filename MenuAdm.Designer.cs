@@ -45,6 +45,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(100, 142);
             pictureBox1.Name = "pictureBox1";
@@ -56,6 +57,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(301, 142);
             pictureBox2.Name = "pictureBox2";
@@ -67,6 +69,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(505, 142);
             pictureBox3.Name = "pictureBox3";
@@ -78,6 +81,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(505, 255);
             pictureBox4.Name = "pictureBox4";
@@ -89,6 +93,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Cursor = Cursors.Hand;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(301, 255);
             pictureBox5.Name = "pictureBox5";
@@ -100,6 +105,7 @@
             // 
             // pictureBox6
             // 
+            pictureBox6.Cursor = Cursors.Hand;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(100, 255);
             pictureBox6.Name = "pictureBox6";
@@ -124,6 +130,7 @@
             Name = "MenuAdm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuAdm";
+            Load += MenuAdm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

@@ -38,10 +38,15 @@
             pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
             pictureBox4 = new PictureBox();
+            panel2 = new Panel();
+            label3 = new Label();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -139,12 +144,51 @@
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Black;
+            panel2.Controls.Add(label3);
+            panel2.Location = new Point(596, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(143, 34);
+            panel2.TabIndex = 41;
+            panel2.Visible = false;
+            panel2.Paint += panel2_Paint;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Black;
+            label3.Cursor = Cursors.Hand;
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(12, 10);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 15);
+            label3.TabIndex = 33;
+            label3.Text = "Menu Administrador";
+            label3.Click += label3_Click;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackgroundImageLayout = ImageLayout.None;
+            pictureBox5.Cursor = Cursors.Hand;
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(741, 12);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(38, 34);
+            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox5.TabIndex = 40;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
             // TelaGestão
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
+            Controls.Add(panel2);
+            Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -162,6 +206,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +224,8 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox1;
         private PictureBox pictureBox4;
+        private Panel panel2;
+        private Label label3;
+        private PictureBox pictureBox5;
     }
 }

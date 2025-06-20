@@ -38,6 +38,7 @@
             // 
             // textBox1
             // 
+            textBox1.Cursor = Cursors.IBeam;
             textBox1.Location = new Point(229, 225);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(400, 23);
@@ -46,6 +47,7 @@
             // 
             // textBox2
             // 
+            textBox2.Cursor = Cursors.IBeam;
             textBox2.Location = new Point(229, 293);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(400, 23);
@@ -56,6 +58,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
+            checkBox1.Cursor = Cursors.Hand;
             checkBox1.ForeColor = SystemColors.ButtonHighlight;
             checkBox1.Location = new Point(520, 322);
             checkBox1.Name = "checkBox1";
@@ -67,6 +70,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(289, 384);
             pictureBox1.Name = "pictureBox1";

@@ -12,6 +12,8 @@ namespace Cantinaa
 {
     public partial class TelaChamadaStatus : Form
     {
+        private bool menuAberto = false;
+
         public TelaChamadaStatus()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace Cantinaa
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
                 if (pedido.statusPedido != Status.Exibido)
-                listBoxProntos.Items.Add($" -> {pedido.nomeCliente}");
+                    listBoxProntos.Items.Add($" -> {pedido.nomeCliente}");
             }
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidosBalcao)
@@ -53,6 +55,25 @@ namespace Cantinaa
             {
                 timer1.Stop();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (menuAberto)
+            {
+                panel1.Visible = false;
+                menuAberto = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+                menuAberto = true;
+            }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        { 
+            this.Close();
         }
     }
 }

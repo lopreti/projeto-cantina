@@ -55,7 +55,6 @@ namespace Cantinaa
 
         private void TelaBalcao_Load(object sender, EventArgs e)
         {
-            panel1.Visible = false;
             AtualizarBalcao();
         }
 
@@ -71,55 +70,33 @@ namespace Cantinaa
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            TelaVendas telaVendas = new TelaVendas();
-            telaVendas.ShowDialog();
-            this.Close();
-        }
+
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void label3_Click(object sender, EventArgs e)
         {
-            TelaCozinha cozinha = new TelaCozinha(this);
-            cozinha.ShowDialog();
-            AtualizarBalcao();
+           
+            this.Close();
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (menuAberto)
             {
-                panel1.Visible = false;
+                panel2.Visible = false;
                 menuAberto = false;
             }
             else
             {
-                panel1.Visible = true;
+                panel2.Visible = true;
                 menuAberto = true;
             }
         }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            this.Hide();
-            TelaVendas telaVendas = new TelaVendas();
-            telaVendas.ShowDialog();
-            this.Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
-            telaChamadaStatus.ShowDialog();
-        }
-
     }
 }
+

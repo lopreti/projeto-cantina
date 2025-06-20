@@ -34,10 +34,14 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             numericUpDown1 = new NumericUpDown();
-            button1 = new Button();
+            panel1 = new Panel();
+            label14 = new Label();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -94,15 +98,41 @@
             numericUpDown1.TabIndex = 7;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // button1
+            // panel1
             // 
-            button1.Location = new Point(699, 417);
-            button1.Name = "button1";
-            button1.Size = new Size(70, 32);
-            button1.TabIndex = 8;
-            button1.Text = ">";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label14);
+            panel1.Location = new Point(593, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(143, 34);
+            panel1.TabIndex = 39;
+            panel1.Visible = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = Color.Black;
+            label14.Cursor = Cursors.Hand;
+            label14.ForeColor = SystemColors.ControlLightLight;
+            label14.Location = new Point(12, 10);
+            label14.Name = "label14";
+            label14.Size = new Size(117, 15);
+            label14.TabIndex = 33;
+            label14.Text = "Menu Administrador";
+            label14.Click += label14_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImageLayout = ImageLayout.None;
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(738, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(38, 34);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 38;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click_1;
             // 
             // TelaEstoque
             // 
@@ -110,7 +140,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
-            Controls.Add(button1);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox3);
             Controls.Add(numericUpDown1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -123,6 +154,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,6 +168,8 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private NumericUpDown numericUpDown1;
-        private Button button1;
+        private Panel panel1;
+        private Label label14;
+        private PictureBox pictureBox3;
     }
 }
