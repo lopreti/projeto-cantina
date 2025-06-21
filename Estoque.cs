@@ -22,7 +22,7 @@ namespace Cantinaa
             {
                 this.quantidade -= quantidade;
             }
-            if ( quantidade <= 0 )
+            if (this.quantidade <= 0 )
             {
                 Produtos.ISAtivo = false;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace Cantinaa
 {
@@ -23,7 +24,7 @@ namespace Cantinaa
 
         }
 
-        public Pedidos(string nomeCliente, string formaPagamento, bool isViagem, List<Produtos> itensPedidos)
+        public Pedidos(string nomeCliente,  string formaPagamento, bool isViagem, List<Produtos> itensPedidos)
         {
             this.ItensPedidos = itensPedidos;
             this.DataPedido = DateTime.Now;
@@ -32,29 +33,42 @@ namespace Cantinaa
             this.IsViagem = isViagem;
         }
 
+        [JsonProperty]
+        public DateTime dataPedido
+        {
+            get { return DataPedido; }
+            set { DataPedido = value; }
+        }
+
+        [JsonProperty]
         public string nomeCliente
         {
             get { return NomeCliente; }
             set { NomeCliente = value; }
         }
 
+        [JsonProperty]
         public string formaPagamento
         {
             get { return FormaPagamento; }
             set { FormaPagamento = value; }
         }
+
+        [JsonProperty]
         public bool isviagem
         {
             get { return IsViagem; }
             set { IsViagem = value; }
         }
 
+        [JsonProperty]
         public List<Produtos> itensPedidos
         {
             get { return ItensPedidos; }
             set { ItensPedidos = value; }
         }
 
+        [JsonProperty]
         public Status statusPedido
         {
             get { return StatusPedido; }
@@ -63,7 +77,7 @@ namespace Cantinaa
    
         public override string ToString()
         {
-            return $"{itensPedidos.ToString}";
+            return $"Cliente: {NomeCliente} - Itens: {ItensPedidos.Count} - {DataPedido:dd/MM/yyyy HH:mm}";
         }
 
     }

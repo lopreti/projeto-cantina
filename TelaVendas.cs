@@ -33,21 +33,16 @@ namespace Cantinaa
         }
         private void AtualizarLista()
         {
+            GerenciadorDados.CarregarTodosDados();
+
             listBoxProduto.Items.Clear();
 
-            foreach (var produto in PersistênciaProduto.listaProdutos)
+            foreach (var estoqueItem in PersistênciaEstoque.listaEstoque)
             {
-                if (produto.ISAtivo)
+                if (estoqueItem.Produtos.ISAtivo && estoqueItem.quantidade > 0)
                 {
-                    Estoque estoqueItem = EncontrarEstoque(produto.Descricao);
 
-                    int quantidadeEstoque = 0;
-                    if (estoqueItem != null)
-                    {
-                        quantidadeEstoque = estoqueItem.quantidade;
-                    }
-
-                    listBoxProduto.Items.Add(produto);
+                    listBoxProduto.Items.Add(estoqueItem.Produtos);
                 }
             }
         }
@@ -100,6 +95,7 @@ namespace Cantinaa
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
+                GerenciadorDados.SalvarTodosDados();
             }
 
             AtualizarLista();
@@ -276,7 +272,7 @@ Data/Hora: {dataHora}
                     break;
                 }
             }
-            Pedidos PedidoFeito = new Pedidos(textBoxNome.Text, comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
+            Pedidos PedidoFeito = new Pedidos(textBoxNome.Text , comboBox1.SelectedItem.ToString(), checkBox1.Checked, carrinho.ToList());
 
             if (temChapa)
             {
@@ -290,12 +286,10 @@ Data/Hora: {dataHora}
                 PedidoFeito.statusPedido = Status.Pronto;
                 PersistenciaPedido.pedidosBalcao.Add(PedidoFeito);
             }
-            AtualizarLista();
 
+            GerenciadorDados.SalvarTodosDados();
+            AtualizarLista();
             LimparTela();
-            TelaBalcao telaBalcao = new TelaBalcao();
-            telaBalcao.ShowDialog();
-            this.Close();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -345,6 +339,7 @@ Data/Hora: {dataHora}
             {
                 estoqueItem.Produtos.ISAtivo = false;
                 MessageBox.Show($"Produto '{estoqueItem.Produtos.Descricao}' esgotado e desativado do estoque.");
+                GerenciadorDados.SalvarTodosDados();
             }
 
             totalPedido += valorItem;
@@ -354,6 +349,7 @@ Data/Hora: {dataHora}
 
             numericUpDown1.Value = 1;
             listBoxProduto.SelectedIndex = -1;
+            GerenciadorDados.SalvarTodosDados();
             AtualizarLista();
         }
 
@@ -383,6 +379,7 @@ Data/Hora: {dataHora}
                     {
                         estoqueItem.Produtos.ISAtivo = true;
                         MessageBox.Show($"Produto '{estoqueItem.Produtos.Descricao}' reativado no estoque.");
+                        GerenciadorDados.SalvarTodosDados();
                     }
                 }
 
@@ -396,6 +393,7 @@ Data/Hora: {dataHora}
                 listBoxCarrinho.Items.RemoveAt(escolhido);
 
                 label5.Text = $"Total: R${totalPedido:F2}";
+                GerenciadorDados.SalvarTodosDados();
                 AtualizarLista();
             }
         }

@@ -68,6 +68,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
+            checkBox1.Cursor = Cursors.Hand;
             checkBox1.ForeColor = SystemColors.ButtonHighlight;
             checkBox1.Location = new Point(500, 301);
             checkBox1.Name = "checkBox1";
@@ -81,6 +82,7 @@
             // 
             checkBox2.AutoSize = true;
             checkBox2.BackColor = Color.Transparent;
+            checkBox2.Cursor = Cursors.Hand;
             checkBox2.ForeColor = SystemColors.Control;
             checkBox2.Location = new Point(648, 301);
             checkBox2.Name = "checkBox2";
@@ -102,6 +104,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(648, 353);
             pictureBox2.Name = "pictureBox2";
@@ -113,6 +116,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(648, 405);
             pictureBox3.Name = "pictureBox3";
@@ -124,6 +128,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(409, 353);
             pictureBox1.Name = "pictureBox1";
@@ -135,6 +140,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(409, 405);
             pictureBox4.Name = "pictureBox4";

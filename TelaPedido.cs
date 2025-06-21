@@ -61,6 +61,7 @@ namespace Cantinaa
                 }
 
                 PersistenciaPedido.pedidosBalcao.Remove(pedido);
+                GerenciadorDados.SalvarTodosDados();
                 tela.AtualizarBalcao();
                 this.Close();
                 TelaChamada telaChamada = new TelaChamada(pedido.nomeCliente);
@@ -78,6 +79,7 @@ namespace Cantinaa
             MessageBox.Show("Seu pedido foi cancelado. Dinheiro extornado.");
             this.Close();
             PersistenciaPedido.pedidosBalcao.Remove(pedido);
+            GerenciadorDados.SalvarTodosDados();
             tela.AtualizarBalcao();
         }
     }

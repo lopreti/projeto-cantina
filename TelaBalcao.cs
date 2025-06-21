@@ -38,18 +38,20 @@ namespace Cantinaa
                         viagem = "";
                     }
 
-                    string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                    string dataPedido = pedido.dataPedido.ToString("dd/MM/yyyy HH:mm");
                     string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} {viagem}";
                     listBox1.Items.Add(resumo);
+                  
                 }
             }
 
             listBox2.Items.Clear();
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
-                string dataPedido = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                string dataPedido = pedido.dataPedido.ToString("dd/MM/yyyy HH:mm");
                 string resumo = $"Cliente: {pedido.nomeCliente} -  {dataPedido} ";
                 listBox2.Items.Add(resumo);
+               
             }
         }
 

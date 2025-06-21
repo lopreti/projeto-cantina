@@ -58,8 +58,11 @@ namespace Cantinaa
             {
                 Pedidos pedidoSelecionado = listaAuxiliar[indice];
                 pedidoSelecionado.statusPedido = Status.Pronto;
+
                 PersistenciaPedido.pedidosCozinha.Remove(pedidoSelecionado);
                 PersistenciaPedido.pedidosBalcao.Add(pedidoSelecionado);
+                GerenciadorDados.SalvarTodosDados();
+
                 listaAuxiliar.RemoveAt(indice);
                 listBox1.Items.RemoveAt(indice);
                 MessageBox.Show("Pedido entregue para o balcão");
@@ -69,7 +72,7 @@ namespace Cantinaa
                     telaBalcao.AtualizarBalcao();
                 }
 
-                this.Close();
+              
             }
             else
             {

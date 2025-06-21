@@ -50,6 +50,8 @@ namespace Cantinaa
                 {
                     pedidos.statusPedido = Status.Exibido;
                 }
+
+                GerenciadorDados.SalvarTodosDados();
             }
             else
             {

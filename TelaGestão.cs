@@ -44,6 +44,7 @@ namespace Cantinaa
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
+                GerenciadorDados.SalvarTodosDados();
             }
             AtualizarLista();
 
@@ -88,6 +89,7 @@ namespace Cantinaa
 
                     produtoSelecionado.Produtos.ISAtivo = false;
                     MessageBox.Show("Produto desativado com sucesso!");
+                    GerenciadorDados.SalvarTodosDados();
                     AtualizarLista();
                     LimparCampos();
                 }
@@ -95,7 +97,7 @@ namespace Cantinaa
             }
             else
             {
-                MessageBox.Show("Selecione um produto para deletar!");
+                MessageBox.Show("Selecione um produto para desativar!");
             }
         }
 
@@ -149,6 +151,7 @@ namespace Cantinaa
 
             PersistênciaEstoque.listaEstoque.Add(estoqueNovo);
             PersistênciaProduto.listaProdutos.Add(Produto);
+            GerenciadorDados.SalvarTodosDados();
 
             AtualizarLista();
             MessageBox.Show("Produto criado com sucesso!");
@@ -216,6 +219,8 @@ namespace Cantinaa
 
                 PersistênciaEstoque.listaEstoque[indexSelecionado] = estoqueNovo;
                 PersistênciaProduto.listaProdutos[indexSelecionado] = Produto;
+                GerenciadorDados.SalvarTodosDados();
+
                 AtualizarLista();
                 MessageBox.Show("Produto editado com sucesso!");
                 listBox1.SelectedIndex = indexSelecionado;
@@ -266,6 +271,7 @@ namespace Cantinaa
 
                     produtoSelecionado.Produtos.ISAtivo = true;
                     MessageBox.Show("Produto ativado com sucesso!");
+                    GerenciadorDados.SalvarTodosDados();
                     AtualizarLista();
                     LimparCampos();
                 }

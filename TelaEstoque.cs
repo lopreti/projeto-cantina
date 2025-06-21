@@ -35,6 +35,7 @@ namespace Cantinaa
             if (PersistênciaEstoque.listaEstoque.Count == 0)
             {
                 PersistênciaEstoque.IniciarEstoque();
+                GerenciadorDados.SalvarTodosDados();
             }
             AtualizarLista();
 
@@ -63,6 +64,7 @@ namespace Cantinaa
                 }
 
                 produtoSelecionado.RemoverQuantidade(quantidadeEscolhida);
+                GerenciadorDados.SalvarTodosDados();
 
                 label2.Text = produtoSelecionado.ToString();
                 int Selecionado = listBox1.SelectedIndex;
@@ -85,6 +87,8 @@ namespace Cantinaa
 
                 Estoque produtoSelecionado = (Estoque)listBox1.SelectedItem;
                 produtoSelecionado.AdicionarQuantidade(quantidadeEscolhida);
+                GerenciadorDados.SalvarTodosDados();
+
                 label2.Text = produtoSelecionado.ToString();
 
                 int Selecionado = listBox1.SelectedIndex;
