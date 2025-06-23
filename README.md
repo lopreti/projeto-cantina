@@ -29,6 +29,7 @@ Use os seguintes logins para acessar o sistema com diferentes funções:
 | Administrador|  `admin`     | `admin`      |
 | Balcão       |  `balcao`    | `balcao`     |
 | Cozinha      |  `cozinha`   | `cozinha`    |
+| Chamada      |  `chamada`   | `chamada`    |
 
 ## 🛠️ Tecnologias
 

@@ -76,6 +76,7 @@
             Name = "TelaChamada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaChamada";
+            Activated += TelaChamada_Activated;
             Load += TelaChamada_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

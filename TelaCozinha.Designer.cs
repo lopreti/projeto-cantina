@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCozinha));
             listBox1 = new ListBox();
             pictureBox1 = new PictureBox();
-            panel2 = new Panel();
-            label3 = new Label();
-            pictureBox5 = new PictureBox();
+            panel1 = new Panel();
+            label14 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -62,41 +62,43 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
-            // panel2
+            // panel1
             // 
-            panel2.BackColor = Color.Black;
-            panel2.Controls.Add(label3);
-            panel2.Location = new Point(590, 12);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(143, 34);
-            panel2.TabIndex = 43;
-            panel2.Visible = false;
+            panel1.BackColor = Color.Black;
+            panel1.Controls.Add(label14);
+            panel1.Location = new Point(592, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(143, 34);
+            panel1.TabIndex = 45;
+            panel1.Visible = false;
+            panel1.Paint += panel1_Paint;
             // 
-            // label3
+            // label14
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Black;
-            label3.Cursor = Cursors.Hand;
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(12, 10);
-            label3.Name = "label3";
-            label3.Size = new Size(117, 15);
-            label3.TabIndex = 33;
-            label3.Text = "Menu Administrador";
-            label3.Click += label3_Click;
+            label14.AutoSize = true;
+            label14.BackColor = Color.Black;
+            label14.Cursor = Cursors.Hand;
+            label14.ForeColor = SystemColors.ControlLightLight;
+            label14.Location = new Point(12, 10);
+            label14.Name = "label14";
+            label14.Size = new Size(117, 15);
+            label14.TabIndex = 33;
+            label14.Text = "Menu Administrador";
+            label14.Click += label14_Click;
             // 
-            // pictureBox5
+            // pictureBox2
             // 
-            pictureBox5.BackgroundImageLayout = ImageLayout.None;
-            pictureBox5.Cursor = Cursors.Hand;
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(735, 12);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(38, 34);
-            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox5.TabIndex = 42;
-            pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
+            pictureBox2.BackgroundImageLayout = ImageLayout.None;
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(737, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(38, 34);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 44;
+            pictureBox2.TabStop = false;
+            pictureBox2.Visible = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // TelaCozinha
             // 
@@ -104,8 +106,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(784, 461);
-            Controls.Add(panel2);
-            Controls.Add(pictureBox5);
+            Controls.Add(panel1);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(listBox1);
             Name = "TelaCozinha";
@@ -113,18 +115,17 @@
             Text = "Cozinha";
             Load += Cozinha_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private ListBox listBox1;
         private PictureBox pictureBox1;
-        private Panel panel2;
-        private Label label3;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox5;
+        private Panel panel1;
+        private Label label14;
     }
 }

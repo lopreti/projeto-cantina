@@ -12,7 +12,8 @@ namespace Cantinaa
 {
     public partial class TelaChamada : Form
     {
-        public TelaChamada(string nomeCliente)
+
+        public TelaChamada(string nomeCliente = null)
         {
             InitializeComponent();
             label1.Text = nomeCliente;
@@ -26,10 +27,12 @@ namespace Cantinaa
         {
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             string nome = label1.Text;
+
             if (nome.Length > 8)
             {
                 nome = nome.Substring(0, 8) + "...";
             }
+
             label1.Text = nome;
         }
 
@@ -38,6 +41,10 @@ namespace Cantinaa
             timer1.Stop();
             this.Close();
 
+        }
+
+        private void TelaChamada_Activated(object sender, EventArgs e)
+        {
         }
     }
 }

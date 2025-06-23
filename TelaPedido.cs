@@ -64,8 +64,12 @@ namespace Cantinaa
                 GerenciadorDados.SalvarTodosDados();
                 tela.AtualizarBalcao();
                 this.Close();
+
                 TelaChamada telaChamada = new TelaChamada(pedido.nomeCliente);
                 telaChamada.ShowDialog();
+                this.Close();
+                TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
+                telaChamadaStatus.ShowDialog();
             }
         }
 

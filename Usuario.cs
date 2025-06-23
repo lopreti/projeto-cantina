@@ -14,6 +14,8 @@ namespace Cantinaa
 
         public string Tipo { get; set; } 
 
+        public static bool Adm {  get; set; }
+
         public Usuario(string nome, string senha, string tipo)
         {
             Nome = nome;

@@ -21,6 +21,11 @@ namespace Cantinaa
 
         private void TelaChamadaStatus_Load(object sender, EventArgs e)
         {
+            if (Usuario.Adm == true)
+            {
+                pictureBox1.Visible = true;
+
+            }
 
             foreach (Pedidos pedido in PersistenciaPedido.pedidosEntregues)
             {
@@ -74,8 +79,18 @@ namespace Cantinaa
         }
 
         private void label14_Click(object sender, EventArgs e)
-        { 
+        {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TelaChamadaStatus_Activated(object sender, EventArgs e)
+        {
+          
         }
     }
 }

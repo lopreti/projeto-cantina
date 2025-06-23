@@ -12,7 +12,8 @@ namespace Cantinaa
         {
             new Usuario("admin", "admin", "Administrador"),
             new Usuario("balcao", "balcao", "Balconista"),
-            new Usuario("cozinha", "cozinha", "Cozinheiro")
+            new Usuario("cozinha", "cozinha", "Cozinheiro"),
+            new Usuario("chamada", "chamada", "Chamada")
         };
     }
 }

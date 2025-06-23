@@ -28,7 +28,12 @@ namespace Cantinaa
 
         private void Cozinha_Load(object sender, EventArgs e)
         {
-            
+            if (Usuario.Adm == true)
+            {
+                pictureBox2.Visible = true;
+
+            }
+
             listaAuxiliar.Clear();
             listBox1.Items.Clear();
 
@@ -72,7 +77,7 @@ namespace Cantinaa
                     telaBalcao.AtualizarBalcao();
                 }
 
-              
+
             }
             else
             {
@@ -85,25 +90,28 @@ namespace Cantinaa
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-            this.Close();
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (menuAberto)
             {
-                panel2.Visible = false;
+                panel1.Visible = false;
                 menuAberto = false;
             }
             else
             {
-                panel2.Visible = true;
+                panel1.Visible = true;
                 menuAberto = true;
             }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -39,12 +39,12 @@ namespace Cantinaa
 
             foreach (Usuario user in PersistenciaUsuarios.listaUsusarios)
             {
-
+               
                 if (user.Nome == usuario && user.Senha == senha)
                 {
-
                     if (user.Tipo == "Administrador")
                     {
+                        Usuario.Adm = true;
                         MessageBox.Show("Bem-vindo, Administrador!");
                         MenuAdm menuAdm = new MenuAdm();
                         menuAdm.ShowDialog();
@@ -62,6 +62,13 @@ namespace Cantinaa
                         MessageBox.Show("Bem-vindo, Cozinha!");
                         TelaCozinha telaCozinha = new TelaCozinha();
                         telaCozinha.Show();
+
+                    }
+
+                    else if (user.Tipo == "Chamada")
+                    {
+                        TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
+                        telaChamadaStatus.Show();
 
                     }
                     this.Hide();

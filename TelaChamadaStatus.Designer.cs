@@ -67,7 +67,7 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 5000;
+            timer1.Interval = 10000;
             timer1.Tick += timer1_Tick;
             // 
             // panel1
@@ -79,6 +79,7 @@
             panel1.Size = new Size(143, 34);
             panel1.TabIndex = 37;
             panel1.Visible = false;
+            panel1.Paint += panel1_Paint;
             // 
             // label14
             // 
@@ -104,6 +105,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 36;
             pictureBox1.TabStop = false;
+            pictureBox1.Visible = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
             // TelaChamadaStatus
@@ -119,6 +121,7 @@
             Name = "TelaChamadaStatus";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaChamadaStatus";
+            Activated += TelaChamadaStatus_Activated;
             Load += TelaChamadaStatus_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
