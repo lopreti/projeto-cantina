@@ -60,16 +60,12 @@ namespace Cantinaa
                     PersistenciaPedido.pedidosEntregues.RemoveAt(5);
                 }
 
+                pedido.statusPedido = Status.Preparando;
                 PersistenciaPedido.pedidosBalcao.Remove(pedido);
                 GerenciadorDados.SalvarTodosDados();
                 tela.AtualizarBalcao();
                 this.Close();
 
-                TelaChamada telaChamada = new TelaChamada(pedido.nomeCliente);
-                telaChamada.ShowDialog();
-                this.Close();
-                TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
-                telaChamadaStatus.ShowDialog();
             }
         }
 

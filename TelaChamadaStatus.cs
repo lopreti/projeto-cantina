@@ -90,7 +90,7 @@ namespace Cantinaa
 
         private void TelaChamadaStatus_Activated(object sender, EventArgs e)
         {
-          
+
         }
     }
 }

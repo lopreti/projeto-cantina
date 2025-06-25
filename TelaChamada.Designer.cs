@@ -51,8 +51,7 @@
             // 
             // timer1
             // 
-            timer1.Enabled = true;
-            timer1.Interval = 1500;
+            timer1.Interval = 4000;
             timer1.Tick += timer1_Tick;
             // 
             // pictureBox1
@@ -76,6 +75,7 @@
             Name = "TelaChamada";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaChamada";
+            TopMost = true;
             Activated += TelaChamada_Activated;
             Load += TelaChamada_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

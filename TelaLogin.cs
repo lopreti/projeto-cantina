@@ -46,33 +46,42 @@ namespace Cantinaa
                     {
                         Usuario.Adm = true;
                         MessageBox.Show("Bem-vindo, Administrador!");
+                        this.Hide();
                         MenuAdm menuAdm = new MenuAdm();
                         menuAdm.ShowDialog();
+                        this.Show();
+                        return;
                     }
 
                     else if (user.Tipo == "Balconista")
                     {
                         MessageBox.Show("Bem-vindo, Balconista!");
+                        this.Hide();
                         TelaBalcao telaBalcao = new TelaBalcao();
-                        telaBalcao.Show();
+                        telaBalcao.ShowDialog();
+                        this.Show();
+                        return;
                     }
 
                     else if (user.Tipo == "Cozinheiro")
                     {
-                        MessageBox.Show("Bem-vindo, Cozinha!");
+                        MessageBox.Show("Bem-vindo, Cozinheiro!");
+                        this.Hide();
                         TelaCozinha telaCozinha = new TelaCozinha();
-                        telaCozinha.Show();
+                        telaCozinha.ShowDialog();
+                        this.Show();
+                        return;
 
                     }
 
                     else if (user.Tipo == "Chamada")
                     {
+                        this.Hide();
                         TelaChamadaStatus telaChamadaStatus = new TelaChamadaStatus();
-                        telaChamadaStatus.Show();
-
+                        telaChamadaStatus.ShowDialog();
+                        this.Show();
+                        return;
                     }
-                    this.Hide();
-                    return;
                 }
             }
 
